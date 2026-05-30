@@ -14,7 +14,7 @@
     <!-- Header -->
     <nav class="bg-[#F0EEE9] flex justify-between px-15 items-center h-24 text-[#414944]">
         <div class="flex items-center gap-1">
-            <img src="/assets/images/logo.png" alt="Your-Friend" class="h-15 w-15" />
+            <img src="/assets/images/landing/logo.png" alt="Your-Friend" class="h-15 w-15" />
             <h1 class="text-3xl font-bold">Y-Friend</h1>
         </div>
 
@@ -34,7 +34,7 @@
         </ul>
 
         <div class="flex gap-2">
-            <img src="/assets/images/globe.png" alt="globe" class="h-8 w-8" />
+            <img src="/assets/images/landing/globe.png" alt="globe" class="h-8 w-8" />
             <h2 class="text-lg font-semibold">Bahasa</h2>
         </div>
     </nav>
@@ -60,7 +60,10 @@
 
                 </div>
                 <div class="grid grid-cols-1 justify-end items-end relative">
-                    <img src="./assets/images/hero.png" alt="" />
+                    <img src="./assets/images/landing/hero.png" alt="" />
+                    <section
+                        class="bg-[#4E755F] bg-[radial-gradient(rgba(255,255,255,0.15)_1px,transparent_1px)] bg-[size:20px_20px]">
+                    </section>
                 </div>
             </div>
         </section>
@@ -70,11 +73,18 @@
 
         <!-- Fitur Section -->
         <section class="py-10">
-            <div class="max-w-6xl mx-auto px-6">
+            <div class="max-w-6xl mx-auto px-6 relative">
 
                 <div class="flex justify-between items-start ">
-                    <h1 class="text-[#3E6653] text-4xl font-bold font-titan tracking-wide">
+                    <h1 class="text-[#3E6653] text-4xl flex font-bold font-titan tracking-wide">
                         Your-Friend
+                        <span class="text-[#D9A15C] rotate-15">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor"
+                                class="bi bi-stars" viewBox="0 0 16 16">
+                                <path
+                                    d="M7.657 6.247c.11-.33.576-.33.686 0l.645 1.937a2.89 2.89 0 0 0 1.829 1.828l1.936.645c.33.11.33.576 0 .686l-1.937.645a2.89 2.89 0 0 0-1.828 1.829l-.645 1.936a.361.361 0 0 1-.686 0l-.645-1.937a2.89 2.89 0 0 0-1.828-1.828l-1.937-.645a.361.361 0 0 1 0-.686l1.937-.645a2.89 2.89 0 0 0 1.828-1.828zM3.794 1.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387A1.73 1.73 0 0 0 4.593 5.69l-.387 1.162a.217.217 0 0 1-.412 0L3.407 5.69A1.73 1.73 0 0 0 2.31 4.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387A1.73 1.73 0 0 0 3.407 2.31zM10.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.16 1.16 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.16 1.16 0 0 0-.732-.732L9.1 2.137a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732z" />
+                            </svg>
+                        </span>
                     </h1>
 
                     <p class="text-xs font-semibold text-right text-[#4A6A55] max-w-sm">
@@ -83,98 +93,117 @@
                     </p>
                 </div>
 
-                <hr class="mb-10 mt-2 border-t-2 border-[#4E755F]" />
+                <hr class="mb-20 mt-2 border-t-2 border-[#4E755F]" />
 
-                <div class="bg-[#486b57] rounded-3xl p-8 flex items-center gap-6 mb-6">
+                <span class="text-white absolute p-3 top-17 bg-[#4A6A55] rounded-xl">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                        class="bi bi-arrow-down-right" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M14 13.5a.5.5 0 0 1-.5.5h-6a.5.5 0 0 1 0-1h4.793L2.146 2.854a.5.5 0 1 1 .708-.708L13 12.293V7.5a.5.5 0 0 1 1 0z" />
+                    </svg>
+                </span>
+                <div class="px-10">
 
-                    <div class="w-28 h-28 shrink-0">
-                        <img src="./assets/images/tracker.png" alt="" class="w-full h-full object-contain">
-                    </div>
+                    <div class="bg-[#345341] rounded-3xl p-8 flex items-center gap-6 mb-6">
 
-                    <div>
-                        <h2 class="text-2xl font-bold text-[#D9A15C] mb-3">
-                            1. Tracker Mood Harian
-                        </h2>
-
-                        <p class="font-semibold text-white text-sm leading-relaxed">
-                            Ekspresikan perasaanmu setiap pagi, siang, dan sore hari.
-                            Pilih ekspresi karakter maskot yang unik, tulis cerita
-                            harianmu dalam jurnal rahasia, dan terima saran aktivitas
-                            kustom pengembang emosimu secara instan.
-                        </p>
-
-                        <a href="#" class="text-[#D9A15C] text-sm mt-3 inline-block">
-                            Buka Tracker Mood →
-                        </a>
-                    </div>
-                </div>
-
-                <div class="grid md:grid-cols-[2fr_1fr] gap-4 mb-6">
-
-                    <div class="bg-[#517962] rounded-3xl p-8 flex items-center gap-6">
-
-                        <div class="w-24 h-24 shrink-0">
-                            <img src="./assets/images/timer.png" alt="" class="w-full h-full object-contain">
+                        <div class="w-28 h-28 shrink-0">
+                            <img src="./assets/images/landing/tracker.png" alt="" class="w-full h-full object-contain">
                         </div>
 
                         <div>
                             <h2 class="text-2xl font-bold text-[#D9A15C] mb-3">
-                                2. Pendamping Belajar
+                                1. Tracker Mood Harian
                             </h2>
 
                             <p class="font-semibold text-white text-sm leading-relaxed">
-                                Watcher otomatis yang melacak durasi belajar harian,
-                                sehatmu, memberi alarm jeda istirahat peregangan,
-                                serta menghitung risiko waktu tidur ideal agar tidak
-                                mengantuk di kelas esok pagi.
+                                Ekspresikan perasaanmu setiap pagi, siang, dan sore hari.
+                                Pilih ekspresi karakter maskot yang unik, tulis cerita
+                                harianmu dalam jurnal rahasia, dan terima saran aktivitas
+                                kustom pengembang emosimu secara instan.
                             </p>
 
                             <a href="#" class="text-[#D9A15C] text-sm mt-3 inline-block">
-                                Alur Waktu Belajar →
+                                Buka Tracker Mood →
                             </a>
                         </div>
                     </div>
 
-                    <div class="bg-[#b4865b] rounded-3xl flex items-center justify-center p-6">
+                    <div class="grid md:grid-cols-[2fr_1fr] gap-4 mb-6">
 
-                        <div class="text-center">
-                            <img src="./assets/images/flower.png" alt="" class="w-24 mx-auto mb-4">
+                        <div class="bg-[#517962] rounded-3xl p-8 flex items-center gap-6">
 
-                            <p class="text-xs font-bold text-[#31493c] tracking-widest">
-                                SENI MENEMUKAN KEDAMAIAN
+                            <div class="w-24 h-24 shrink-0">
+                                <img src="./assets/images/landing/timer.png" alt=""
+                                    class="w-full h-full object-contain">
+                            </div>
+
+                            <div>
+                                <h2 class="text-2xl font-bold text-[#D9A15C] mb-3">
+                                    2. Pendamping Belajar
+                                </h2>
+
+                                <p class="font-semibold text-white text-sm leading-relaxed">
+                                    Watcher otomatis yang melacak durasi belajar harian,
+                                    sehatmu, memberi alarm jeda istirahat peregangan,
+                                    serta menghitung risiko waktu tidur ideal agar tidak
+                                    mengantuk di kelas esok pagi.
+                                </p>
+
+                                <a href="#" class="text-[#D9A15C] text-sm mt-3 inline-block">
+                                    Alur Waktu Belajar →
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="bg-[#b4865b] rounded-3xl flex items-center justify-center p-6">
+
+                            <div class="text-center">
+                                <img src="./assets/images/landing/flower.png" alt="" class="w-24 mx-auto mb-4">
+
+                                <p class="text-xs font-bold text-[#31493c] tracking-widest">
+                                    SENI MENEMUKAN KEDAMAIAN
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div
+                        class="bg-gradient-to-r from-[#315543] to-[#0E2B1F] rounded-3xl p-8 flex items-center justify-between">
+
+                        <div class="max-w-xl">
+                            <h2 class="text-2xl font-bold text-[#D9A15C] mb-3">
+                                3. Sudut Ambience Space
+                            </h2>
+
+                            <p class="font-semibold text-white text-sm leading-relaxed">
+                                Temukan ketenangan jiwa yang mendalam di sela padatnya
+                                jadwal pelajaran sekolah. Mainkan instrumen lo-fi akustik
+                                atau gemericik hujan harian, dan kendalikan kecemasanmu
+                                melalui panduan meditasi pernapasan kotak ("Box Breathing")
+                                teratur.
                             </p>
+
+                            <a href="#" class="text-[#D9A15C] text-sm mt-3 inline-block">
+                                Buka Ambience Space →
+                            </a>
+                        </div>
+
+                        <div>
+                            <img src="./assets/images/landing/raindrops.png" alt="" class="pr-12">
                         </div>
 
                     </div>
                 </div>
 
-                <div
-                    class="bg-gradient-to-r from-[#315543] to-[#0E2B1F] rounded-3xl p-8 flex items-center justify-between">
+                <span class="text-white absolute p-3 -bottom-17 right-0 bg-[#4A6A55] rounded-xl">
 
-                    <div class="max-w-xl">
-                        <h2 class="text-2xl font-bold text-[#D9A15C] mb-3">
-                            3. Sudut Ambience Space
-                        </h2>
-
-                        <p class="font-semibold text-white text-sm leading-relaxed">
-                            Temukan ketenangan jiwa yang mendalam di sela padatnya
-                            jadwal pelajaran sekolah. Mainkan instrumen lo-fi akustik
-                            atau gemericik hujan harian, dan kendalikan kecemasanmu
-                            melalui panduan meditasi pernapasan kotak ("Box Breathing")
-                            teratur.
-                        </p>
-
-                        <a href="#" class="text-[#D9A15C] text-sm mt-3 inline-block">
-                            Buka Ambience Space →
-                        </a>
-                    </div>
-
-                    <div>
-                        <img src="./assets/images/raindrops.png" alt="" class="pr-12">
-                    </div>
-
-                </div>
-
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                        class="bi bi-arrow-up-left" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M2 2.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1H3.707l10.147 10.146a.5.5 0 0 1-.708.708L3 3.707V8.5a.5.5 0 0 1-1 0z" />
+                    </svg>
+                </span>
             </div>
         </section>
 
@@ -200,7 +229,7 @@
 
                         <div class="w-24 h-24 bg-[#F2F0EB] rounded-2xl flex items-center justify-center shrink-0">
 
-                            <img src="./assets/images/student.png" alt="Siswa" class="w-16 h-16 object-contain">
+                            <img src="./assets/images/landing/student.png" alt="Siswa" class="w-16 h-16 object-contain">
                         </div>
 
                         <div>
@@ -222,7 +251,7 @@
 
                         <div class="w-24 h-24 bg-[#F2F0EB] rounded-2xl flex items-center justify-center shrink-0">
 
-                            <img src="./assets/images/teacher.png" alt="Guru" class="w-16 h-16">
+                            <img src="./assets/images/landing/teacher.png" alt="Guru" class="w-16 h-16">
                         </div>
 
                         <div>
@@ -267,7 +296,7 @@
                 </div>
 
                 <div>
-                    <img src="./assets/images/cta.png" alt="CTA Illustration" class="w-[320px] lg:w-95">
+                    <img src="./assets/images/landing/cta.png" alt="CTA Illustration" class="w-[320px] lg:w-95">
                 </div>
 
             </div>
@@ -282,7 +311,7 @@
             <div class="flex flex-col md:flex-row justify-between gap-8">
                 <div class="max-w-sm">
                     <div class="flex items-center gap-2 mb-4">
-                        <img src="./assets/images/logo.png" alt="Y-Friend" class="w-10 h-10">
+                        <img src="./assets/images/landing/logo.png" alt="Y-Friend" class="w-10 h-10">
 
                         <h2 class="text-3xl font-bold text-[#414944]">
                             Y-Friend
@@ -307,11 +336,11 @@
 
                     <div class="flex justify-end gap-3 mt-5">
                         <a href="#">
-                            <img src="./assets/images/instagram.png" alt="Instagram" class="w-6 h-6">
+                            <img src="./assets/images/landing/instagram.png" alt="Instagram" class="w-6 h-6">
                         </a>
 
                         <a href="#">
-                            <img src="./assets/images/facebook.png" alt="Facebook" class="w-6 h-6">
+                            <img src="./assets/images/landing/facebook.png" alt="Facebook" class="w-6 h-6">
                         </a>
                     </div>
                 </div>
