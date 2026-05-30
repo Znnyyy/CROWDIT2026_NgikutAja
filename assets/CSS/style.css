@@ -1,0 +1,16 @@
+@font-face {
+    font-family: "One Titan";
+    src: url("../fonts/TitanOne-Regular.ttf") format("truetype");
+}
+@font-face {
+    font-family: "Tirra";
+    src: url("../fonts/Tirra-Regular.ttf") format("truetype");
+}
+
+.font-titan {
+    font-family: "One Titan", sans-serif;
+}
+
+.font-tirra {
+    font-family: "Tirra", sans-serif;
+}
