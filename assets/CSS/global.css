@@ -2,6 +2,7 @@
     font-family: "One Titan";
     src: url("../fonts/TitanOne-Regular.ttf") format("truetype");
 }
+
 @font-face {
     font-family: "Tirra";
     src: url("../fonts/Tirra-Regular.ttf") format("truetype");
@@ -13,4 +14,35 @@
 
 .font-tirra {
     font-family: "Tirra", sans-serif;
+}
+
+.font-poppins {
+    font-family: "Poppins", sans-serif;
+}
+
+#mobile-menu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .35s ease;
+}
+
+#mobile-menu.open {
+    max-height: 400px;
+}
+
+#menu-btn .line {
+    transition: transform .3s ease, opacity .3s ease;
+    transform-origin: center;
+}
+
+#menu-btn.active .line:nth-child(1) {
+    transform: translateY(10px) rotate(45deg);
+}
+
+#menu-btn.active .line:nth-child(2) {
+    opacity: 0;
+}
+
+#menu-btn.active .line:nth-child(3) {
+    transform: translateY(-10px) rotate(-45deg);
 }
