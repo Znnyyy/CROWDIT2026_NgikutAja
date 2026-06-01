@@ -1,0 +1,25 @@
+body {
+  position: relative;
+  min-height: 100vh;
+}
+
+/* background layer */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url('/assets/images/mulai-belajar/mulai-belajar-bg.png');
+  background-size: 2451px;
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: blur(5px);
+  transform: scale(1.05); /* biar blur tidak crop pinggir */
+  z-index: -1;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+}

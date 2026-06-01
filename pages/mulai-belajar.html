@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your-Friend</title>
+
+    <link rel="stylesheet" href="/assets/CSS/output.css" />
+    <link rel="stylesheet" href="/assets/CSS/mulai-belajar.css" />
+
+    <!-- Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Titan+One&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+
+    <style>
+      .font-titan {
+        font-family: "Titan One", cursive;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <nav
+      class="bg-[#F0EEE9] flex justify-between px-15 items-center h-24 text-[#414944]"
+    >
+      <div class="flex items-center gap-1">
+        <img
+          src="/assets/images/logo.png"
+          alt="Your-Friend"
+          class="h-15 w-15"
+        />
+        <h1 class="text-3xl font-bold">Y-Friend</h1>
+      </div>
+
+      <ul class="flex gap-16 text-lg">
+        <li>
+          <a href="/index.html">Beranda</a>
+        </li>
+        <li>
+          <a href="#">T-Mood</a>
+        </li>
+        <li>
+          <a href="#">Mulai-Belajar</a>
+        </li>
+        <li>
+          <a href="#">Suasana-Tenang</a>
+        </li>
+      </ul>
+
+      <div class="flex gap-2">
+        <img src="/assets/images/globe.png" alt="globe" class="h-8 w-8" />
+        <h2 class="text-lg font-semibold">Bahasa</h2>
+      </div>
+    </nav>
+
+    <!-- Main -->
+    <section class="min-h-screen flex items-center justify-center">
+      <!-- Outer Card -->
+      <div
+        class="w-315 h-185 bg-[#D4D4C4] rounded-[30px] p-4.75 outline-5 outline-[#587B6C]"
+      >
+        <!-- Inner Card -->
+        <div
+          class="w-full h-full bg-[#F4F0EA] rounded-[20px] px-13.75 py-9.25 flex flex-col items-center justify-between outline-4 outline-dashed outline-[#A8B7A6]"
+        >
+          <!-- Title -->
+          <h1 class="font-titan text-6xl text-[#3B5B4E]">Waktu Fokus</h1>
+
+          <!-- Timer Section -->
+          <div class="text-center">
+            <!-- Top Icons -->
+            <div class="flex justify-center items-center gap-83 mb-4">
+              <i class="fa-solid fa-angle-up fa-2xl" style="color: #587966;"></i>
+              <i class="fa-solid fa-angle-up fa-2xl" style="color: #587966;"></i>
+              <i class="fa-solid fa-angle-up fa-2xl" style="color: #587966;"></i>
+            </div>
+
+            <!-- Time -->
+            <div class="font-titan text-[215px] leading-none text-[#3B5B4E] my-6">
+              01:00:00
+            </div>
+
+            <!-- Bottom Icons -->
+            <div class="flex justify-center items-center gap-83 mt-4">
+              <i class="fa-solid fa-angle-down fa-2xl" style="color: #587966;"></i>
+              <i class="fa-solid fa-angle-down fa-2xl" style="color: #587966;"></i>
+              <i class="fa-solid fa-angle-down fa-2xl" style="color: #587966;"></i>
+            </div>
+          </div>
+
+          <!-- Button -->
+          <button
+            class="w-125 h-26 bg-[#587966] rounded-full flex items-center justify-center gap-8 outline-2 outline-[#385246]"
+          >
+            <img
+              src="/assets/images/mulai-belajar/play.png"
+              alt=""
+              class="h-18"
+            />
+            <span class="font-titan text-[54px] text-white"> Mulai </span>
+          </button>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
