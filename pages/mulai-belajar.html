@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Your-Friend</title>
+    <title>Your-Friend - Mulai Belajar</title>
 
     <link rel="stylesheet" href="/assets/CSS/output.css" />
     <link rel="stylesheet" href="/assets/CSS/mulai-belajar.css" />
@@ -22,91 +22,380 @@
       .font-titan {
         font-family: "Titan One", cursive;
       }
+
+      /* Glassmorphism focus state or active state for timer card */
+      .timer-card-active {
+        box-shadow: 0 0 40px rgba(88, 123, 108, 0.4);
+        transition: all 0.5s ease-in-out;
+      }
+
+      /* Control buttons transition effects */
+      .timer-control-btn {
+        transition: all 0.2s ease;
+      }
+      .timer-control-btn:hover:not(:disabled) {
+        transform: scale(1.15);
+      }
+      .timer-control-btn:active:not(:disabled) {
+        transform: scale(0.9);
+      }
+      .timer-control-btn:disabled {
+        opacity: 0.25;
+        cursor: not-allowed;
+      }
+
+      @media (max-width: 1410px) {
+        .timer-digit {
+          font-size: clamp(64px, 11vw, 170px);
+        }
+        .timer-chevron {
+          font-size: clamp(20px, 3vw, 48px);
+        }
+      }
     </style>
+    <!-- Defer loading of timer script -->
+    <script src="/assets/JS/mulai-belajar.js" defer></script>
   </head>
-  <body>
+  <body class="flex flex-col min-h-screen">
     <!-- Header -->
     <nav
-      class="bg-[#F0EEE9] flex justify-between px-15 items-center h-24 text-[#414944]"
+      class="bg-[#F0EEE9] flex justify-between px-4 sm:px-8 md:px-15 items-center h-20 md:h-24 text-[#414944] relative z-50 shadow-sm"
     >
-      <div class="flex items-center gap-1">
+      <div class="flex items-center gap-1 sm:gap-2">
         <img
           src="/assets/images/logo.png"
           alt="Your-Friend"
-          class="h-15 w-15"
+          class="h-10 w-10 md:h-15 md:w-15"
         />
-        <h1 class="text-3xl font-bold">Y-Friend</h1>
+        <h1 class="text-xl sm:text-2xl md:text-3xl font-bold">Y-Friend</h1>
       </div>
 
-      <ul class="flex gap-16 text-lg">
-        <li>
+      <!-- Desktop Navigation -->
+      <ul
+        class="hidden lg:flex gap-8 lg:gap-16 text-base lg:text-lg font-medium"
+      >
+        <li class="hover:text-[#587966] transition-colors">
           <a href="/index.html">Beranda</a>
         </li>
-        <li>
+        <li class="hover:text-[#587966] transition-colors">
           <a href="#">T-Mood</a>
         </li>
-        <li>
-          <a href="#">Mulai-Belajar</a>
+        <li class="hover:text-[#587966] transition-colors">
+          <a
+            href="#"
+            class="text-[#587966] font-bold border-b-2 border-[#587966] pb-1"
+            >Mulai-Belajar</a
+          >
         </li>
-        <li>
+        <li class="hover:text-[#587966] transition-colors">
           <a href="#">Suasana-Tenang</a>
         </li>
       </ul>
 
-      <div class="flex gap-2">
-        <img src="/assets/images/globe.png" alt="globe" class="h-8 w-8" />
-        <h2 class="text-lg font-semibold">Bahasa</h2>
+      <div class="flex items-center gap-4">
+        <div class="flex gap-1 sm:gap-2 items-center">
+          <img
+            src="/assets/images/globe.png"
+            alt="globe"
+            class="h-6 w-6 md:h-8 md:w-8"
+          />
+          <h2 class="text-sm md:text-lg font-semibold hidden sm:inline">
+            Bahasa
+          </h2>
+        </div>
+
+        <!-- Mobile Menu Hamburger Button -->
+        <button
+          id="menu-toggle"
+          class="lg:hidden text-[#414944] focus:outline-none hover:text-[#587966] transition-colors p-2"
+          aria-label="Toggle menu"
+        >
+          <i class="fa-solid fa-bars fa-xl"></i>
+        </button>
+      </div>
+
+      <!-- Mobile Navigation Dropdown -->
+      <div
+        id="mobile-menu"
+        class="hidden absolute top-20 left-0 w-full bg-[#F0EEE9] border-t border-[#E4E2DC] flex flex-col items-center gap-4 py-6 shadow-md transition-all duration-300 md:hidden"
+      >
+        <a
+          href="/index.html"
+          class="w-full text-center py-2 hover:bg-[#E4E2DC] transition-colors font-medium"
+          >Beranda</a
+        >
+        <a
+          href="#"
+          class="w-full text-center py-2 hover:bg-[#E4E2DC] transition-colors font-medium"
+          >T-Mood</a
+        >
+        <a
+          href="#"
+          class="w-full text-center py-2 hover:bg-[#E4E2DC] bg-[#E4E2DC]/50 text-[#587966] font-bold transition-colors"
+          >Mulai-Belajar</a
+        >
+        <a
+          href="#"
+          class="w-full text-center py-2 hover:bg-[#E4E2DC] transition-colors font-medium"
+          >Suasana-Tenang</a
+        >
       </div>
     </nav>
 
     <!-- Main -->
-    <section class="min-h-screen flex items-center justify-center">
+    <section
+      class="grow flex items-center justify-center md:justify-start px-4 sm:px-8 md:px-16 py-6"
+    >
       <!-- Outer Card -->
       <div
-        class="w-315 h-185 bg-[#D4D4C4] rounded-[30px] p-4.75 outline-5 outline-[#587B6C]"
+        id="timer-card"
+        class="w-full max-w-[1260px] h-auto md:h-[740px] bg-[#D4D4C4] rounded-[30px] p-3 sm:p-4.75 outline-5 outline-[#587B6C] transition-all duration-300 flex flex-col overflow-hidden"
       >
         <!-- Inner Card -->
         <div
-          class="w-full h-full bg-[#F4F0EA] rounded-[20px] px-13.75 py-9.25 flex flex-col items-center justify-between outline-4 outline-dashed outline-[#A8B7A6]"
+          class="w-full grow bg-[#F4F0EA] rounded-[20px] px-3 py-6 sm:px-6 sm:py-8 md:px-13.75 md:py-9.25 flex flex-col items-center justify-between outline-4 outline-dashed outline-[#A8B7A6] gap-4 md:gap-0 overflow-hidden"
         >
           <!-- Title -->
-          <h1 class="font-titan text-6xl text-[#3B5B4E]">Waktu Fokus</h1>
+          <h1
+            class="font-titan text-2xl sm:text-3xl md:text-6xl text-[#3B5B4E] tracking-wide text-center"
+          >
+            Waktu Fokus
+          </h1>
 
           <!-- Timer Section -->
-          <div class="text-center">
-            <!-- Top Icons -->
-            <div class="flex justify-center items-center gap-83 mb-4">
-              <i class="fa-solid fa-angle-up fa-2xl" style="color: #587966;"></i>
-              <i class="fa-solid fa-angle-up fa-2xl" style="color: #587966;"></i>
-              <i class="fa-solid fa-angle-up fa-2xl" style="color: #587966;"></i>
-            </div>
+          <div
+            class="text-center w-full flex flex-col items-center overflow-hidden"
+          >
+            <!-- Timer Controls and Digit Grid -->
+            <div
+              class="flex items-center justify-center gap-1 sm:gap-2 md:gap-8 select-none my-2 md:my-6 w-full"
+            >
+              <!-- Hours Column -->
+              <div class="flex flex-col items-center shrink-0">
+                <button
+                  id="hr-up"
+                  class="timer-control-btn p-1 sm:p-2"
+                  aria-label="Increase Hours"
+                >
+                  <i
+                    class="fa-solid fa-angle-up text-[5vw] sm:text-3xl md:text-6xl"
+                    style="color: #587966"
+                  ></i>
+                </button>
+                <span
+                  id="hours-display"
+                  class="font-titan text-[10vw] sm:text-[9vw] lg:text-[120px] xl:text-[200px] leading-none text-[#3B5B4E] my-1 cursor-pointer hover:text-[#587966] transition-colors duration-150"
+                  title="Klik untuk mengubah"
+                  >01</span
+                >
+                <button
+                  id="hr-down"
+                  class="timer-control-btn p-1 sm:p-2"
+                  aria-label="Decrease Hours"
+                >
+                  <i
+                    class="fa-solid fa-angle-down text-[5vw] sm:text-3xl md:text-6xl"
+                    style="color: #587966"
+                  ></i>
+                </button>
+              </div>
 
-            <!-- Time -->
-            <div class="font-titan text-[215px] leading-none text-[#3B5B4E] my-6">
-              01:00:00
-            </div>
+              <!-- Separator -->
+              <span
+                class="font-titan text-[10vw] sm:text-[9vw] md:text-[170px] leading-none text-[#3B5B4E] self-center pb-2 sm:pb-4 md:pb-8 shrink-0"
+                >:</span
+              >
 
-            <!-- Bottom Icons -->
-            <div class="flex justify-center items-center gap-83 mt-4">
-              <i class="fa-solid fa-angle-down fa-2xl" style="color: #587966;"></i>
-              <i class="fa-solid fa-angle-down fa-2xl" style="color: #587966;"></i>
-              <i class="fa-solid fa-angle-down fa-2xl" style="color: #587966;"></i>
+              <!-- Minutes Column -->
+              <div class="flex flex-col items-center shrink-0">
+                <button
+                  id="min-up"
+                  class="timer-control-btn p-1 sm:p-2"
+                  aria-label="Increase Minutes"
+                >
+                  <i
+                    class="fa-solid fa-angle-up text-[5vw] sm:text-3xl md:text-6xl"
+                    style="color: #587966"
+                  ></i>
+                </button>
+                <span
+                  id="minutes-display"
+                  class="font-titan text-[10vw] sm:text-[9vw] lg:text-[120px] xl:text-[200px] leading-none text-[#3B5B4E] my-1 cursor-pointer hover:text-[#587966] transition-colors duration-150"
+                  title="Klik untuk mengubah"
+                  >00</span
+                >
+                <button
+                  id="min-down"
+                  class="timer-control-btn p-1 sm:p-2"
+                  aria-label="Decrease Minutes"
+                >
+                  <i
+                    class="fa-solid fa-angle-down text-[5vw] sm:text-3xl md:text-6xl"
+                    style="color: #587966"
+                  ></i>
+                </button>
+              </div>
+
+              <!-- Separator -->
+              <span
+                class="font-titan text-[10vw] sm:text-[9vw] md:text-[170px] leading-none text-[#3B5B4E] self-center pb-2 sm:pb-4 md:pb-8 shrink-0"
+                >:</span
+              >
+
+              <!-- Seconds Column -->
+              <div class="flex flex-col items-center shrink-0">
+                <button
+                  id="sec-up"
+                  class="timer-control-btn p-1 sm:p-2"
+                  aria-label="Increase Seconds"
+                >
+                  <i
+                    class="fa-solid fa-angle-up text-[5vw] sm:text-3xl md:text-6xl"
+                    style="color: #587966"
+                  ></i>
+                </button>
+                <span
+                  id="seconds-display"
+                  class="font-titan text-[10vw] sm:text-[9vw] lg:text-[120px] xl:text-[200px] leading-none text-[#3B5B4E] my-1 cursor-pointer hover:text-[#587966] transition-colors duration-150"
+                  title="Klik untuk mengubah"
+                  >00</span
+                >
+                <button
+                  id="sec-down"
+                  class="timer-control-btn p-1 sm:p-2"
+                  aria-label="Decrease Seconds"
+                >
+                  <i
+                    class="fa-solid fa-angle-down text-[5vw] sm:text-3xl md:text-6xl"
+                    style="color: #587966"
+                  ></i>
+                </button>
+              </div>
             </div>
           </div>
 
-          <!-- Button -->
-          <button
-            class="w-125 h-26 bg-[#587966] rounded-full flex items-center justify-center gap-8 outline-2 outline-[#385246]"
-          >
-            <img
-              src="/assets/images/mulai-belajar/play.png"
-              alt=""
-              class="h-18"
-            />
-            <span class="font-titan text-[54px] text-white"> Mulai </span>
-          </button>
+          <!-- Buttons Group -->
+          <div class="flex items-center gap-3 sm:gap-6 w-full justify-center">
+            <!-- Start/Pause Button -->
+            <button
+              id="start-btn"
+              class="w-48 sm:w-60 md:w-125 h-12 sm:h-16 md:h-26 bg-[#587966] rounded-full flex items-center justify-center gap-2 sm:gap-4 md:gap-8 outline-2 outline-[#385246] hover:bg-[#476353] hover:scale-105 active:scale-98 transition-all duration-150 cursor-pointer shadow-md text-white"
+            >
+              <img
+                id="start-icon"
+                src="/assets/images/mulai-belajar/play.png"
+                alt=""
+                class="h-6 sm:h-8 md:h-18 transition-all duration-200"
+              />
+              <span
+                id="start-text"
+                class="font-titan text-lg sm:text-2xl md:text-[54px]"
+              >
+                Mulai
+              </span>
+            </button>
+
+            <!-- Reset Button -->
+            <button
+              id="reset-btn"
+              class="w-12 h-12 sm:w-16 sm:h-16 md:w-26 md:h-26 bg-[#A8B7A6] rounded-full flex items-center justify-center outline-2 outline-[#8F9F8E] hover:bg-[#97A695] hover:scale-105 active:scale-98 transition-all duration-150 cursor-pointer shadow-md text-[#3B5B4E]"
+              aria-label="Reset Timer"
+              title="Reset"
+            >
+              <i
+                class="fa-solid fa-rotate-left text-base sm:text-xl md:text-4xl"
+              ></i>
+            </button>
+          </div>
         </div>
       </div>
-    </section>
+    <!-- Break Time Modal -->
+    <div id="break-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm p-4 transition-opacity duration-300">
+      <div class="w-full max-w-4xl bg-[#D4D4C4] rounded-[30px] p-3 outline-5 outline-[#587B6C] sm:p-4.75 flex flex-col shadow-2xl overflow-y-auto max-h-[90vh]">
+        <div class="w-full grow bg-[#F4F0EA] rounded-[20px] px-4 py-8 sm:px-12 sm:py-10 flex flex-col outline-4 outline-dashed outline-[#A8B7A6]">
+          
+          <!-- Modal Header -->
+          <div class="flex justify-center gap-4 mb-6">
+            <span class="bg-[#E4E9DC] text-[#3B5B4E] font-bold py-1 px-4 rounded-full border border-[#D2D8CB]">Waktu Istirahat</span>
+            <span class="bg-[#E4E9DC] text-[#3B5B4E] font-bold py-1 px-4 rounded-full border border-[#D2D8CB]">5 Menit</span>
+          </div>
+          <h2 class="font-titan text-3xl sm:text-5xl text-[#3B5B4E] tracking-wide text-center mb-10">Rekomendasi Waktu Istirahat</h2>
+
+          <!-- Accordion List -->
+          <div class="flex flex-col gap-4">
+            
+            <!-- Item 1 (Expanded Default in Logic)-->
+            <div class="accordion-item bg-[#F0EEE9] border-2 border-[#D4D9C8] rounded-[20px] p-4 cursor-pointer overflow-hidden transition-all duration-300">
+              <div class="flex items-center gap-4 sm:gap-6">
+                <div class="bg-white rounded-xl w-16 h-16 sm:w-24 sm:h-24 flex items-center justify-center shrink-0 shadow-sm overflow-hidden p-1">
+                  <img src="/assets/images/mulai-belajar/minum_air_putih_1780382640396.png" class="w-full h-full object-contain rounded-lg" alt="Minum air putih">
+                </div>
+                <!-- This content is shown initially as per design -->
+                <div class="flex flex-col grow">
+                  <h3 class="font-titan text-[#3B5B4E] text-xl sm:text-2xl mb-1">Minum air putih</h3>
+                  <p class="text-[#5D6B60] text-sm sm:text-base leading-snug">Minum air putih membantu menjaga tubuh tetap terhidrasi dan segar.</p>
+                </div>
+                <div class="bg-[#587966] text-white w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center shrink-0">
+                  <i class="fa-solid fa-chevron-up accordion-icon transition-transform duration-300 text-lg sm:text-xl"></i>
+                </div>
+              </div>
+              <div class="accordion-content mt-4 pt-4 border-t-2 border-dashed border-[#A8B7A6] flex gap-4">
+                <p class="text-[#5D6B60] text-sm sm:text-base leading-snug w-full">Ambil segelas air putih untuk menyegarkan pikiran dan mengembalikan cairan tubuh yang hilang.</p>
+              </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="accordion-item bg-[#F0EEE9] border-2 border-[#D4D9C8] rounded-[20px] p-4 cursor-pointer overflow-hidden transition-all duration-300">
+              <div class="flex items-center gap-4 sm:gap-6">
+                <div class="bg-white rounded-xl w-16 h-16 sm:w-24 sm:h-24 flex items-center justify-center shrink-0 shadow-sm overflow-hidden p-1">
+                  <img src="/assets/images/mulai-belajar/peregangan_1780382655548.png" class="w-full h-full object-contain rounded-lg" alt="Peregangan">
+                </div>
+                <div class="flex flex-col grow">
+                  <h3 class="font-titan text-[#3B5B4E] text-xl sm:text-2xl mb-1">Peregangan</h3>
+                  <p class="text-[#5D6B60] text-sm sm:text-base leading-snug">Peregangan membantu melancarkan peredaran darah dan meredakan ketegangan otot.</p>
+                </div>
+                <div class="bg-[#587966] text-white w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center shrink-0">
+                  <i class="fa-solid fa-chevron-down accordion-icon transition-transform duration-300 text-lg sm:text-xl"></i>
+                </div>
+              </div>
+              <div class="accordion-content hidden mt-4 pt-4 border-t-2 border-dashed border-[#A8B7A6] flex gap-4">
+                <p class="text-[#5D6B60] text-sm sm:text-base leading-snug w-full">Lakukan peregangan ringan pada leher, bahu, dan lengan. Berdirilah sejenak agar aliran darah kembali lancar.</p>
+              </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="accordion-item bg-[#F0EEE9] border-2 border-[#D4D9C8] rounded-[20px] p-4 cursor-pointer overflow-hidden transition-all duration-300">
+              <div class="flex items-center gap-4 sm:gap-6">
+                <div class="bg-white rounded-xl w-16 h-16 sm:w-24 sm:h-24 flex items-center justify-center shrink-0 shadow-sm overflow-hidden p-1">
+                  <img src="/assets/images/mulai-belajar/olah_nafas_1780382669911.png" class="w-full h-full object-contain rounded-lg" alt="Olah nafas">
+                </div>
+                <div class="flex flex-col grow">
+                  <h3 class="font-titan text-[#3B5B4E] text-xl sm:text-2xl mb-1">Olah nafas</h3>
+                  <p class="text-[#5D6B60] text-sm sm:text-base leading-snug">Olah nafas membantu menenangkan pikiran, mengurangi stres, dan meningkatkan fokus.</p>
+                </div>
+                <div class="bg-[#587966] text-white w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center shrink-0">
+                  <i class="fa-solid fa-chevron-down accordion-icon transition-transform duration-300 text-lg sm:text-xl"></i>
+                </div>
+              </div>
+              <div class="accordion-content hidden mt-4 pt-4 border-t-2 border-dashed border-[#A8B7A6] flex gap-4">
+                <div class="flex flex-col gap-2 w-full">
+                  <p class="text-[#5D6B60] text-sm sm:text-base leading-relaxed">Luangkan waktu sejenak untuk beristirahat dan ambil nafas dalam, tenangkan pikiran, dan beri tubuh waktu untuk pulih.</p>
+                  <p class="text-[#5D6B60] text-sm sm:text-base leading-relaxed">Istirahat yang cukup membuatmu lebih segar dan produktif.</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Close Button -->
+          <div class="mt-8 flex justify-center">
+            <button id="close-modal-btn" class="hidden opacity-0 w-32 sm:w-48 bg-[#3B5B4E] text-white font-titan py-3 rounded-full hover:bg-[#2F493E] hover:scale-105 active:scale-95 transition-all duration-300 shadow-md">
+              Tutup
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </div>
   </body>
 </html>

@@ -23,3 +23,13 @@ body::after {
   inset: 0;
   z-index: -1;
 }
+
+/* Hide number input spinner controls */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=number] {
+  -moz-appearance: textfield;
+}
