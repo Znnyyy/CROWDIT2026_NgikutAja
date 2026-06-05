@@ -11,26 +11,44 @@
 <body class="font-tirra">
     <!-- Navbar -->
     <nav class="bg-[#F0EEE9] sticky top-0 z-50 shadow-sm">
-        <div class="flex justify-between items-center h-20 px-5 sm:px-10 lg:px-15 text-[#414944]">
+        <div class="flex justify-between items-center h-20 px-5 sm:px-10 md:px-15 text-[#414944]">
 
-            <div class="flex items-center gap-1.5">
-                <img src="/assets/images/landing/logo.png" alt="Your-Friend" class="h-10 w-10 sm:h-14 sm:w-14" />
-                <h1 class="text-2xl sm:text-3xl font-bold font-titan">Y-Friend</h1>
+            <div class="flex items-center gap-1.5   ">
+                <a href="./index.html">
+                    <img src="/assets/images/landing/logo.png" alt="Your-Friend" class="h-10 w-10 sm:h-14 sm:w-14" />
+                </a>
+                <a href="./index.html">
+                    <h1 class="text-2xl sm:text-3xl font-bold font-titan">Y-Friend</h1>
+                </a>
             </div>
 
-            <ul class="hidden md:flex gap-8 lg:gap-16 text-base lg:text-lg">
-                <li><a href="" class="hover:text-[#4E755F] transition-colors">Beranda</a></li>
-                <li><a href="./t-mood.html" class="hover:text-[#4E755F] transition-colors">T-Mood</a></li>
-                <li><a href="" class="hover:text-[#4E755F] transition-colors">Mulai-Belajar</a></li>
-                <li><a href="#" class="hover:text-[#4E755F] transition-colors">Suasana-Tenang</a></li>
+            <ul class="hidden md:flex gap-8 md:gap-16 text-base md:text-lg">
+                <li><a href="" class="hover:text-[#4E755F] access-login transition-colors">Beranda</a></li>
+                <li><a href="./t-mood.html" class="hover:text-[#4E755F] access-login transition-colors">T-Mood</a></li>
+                <li><a href="" class="hover:text-[#4E755F] access-login transition-colors">Mulai-Belajar</a></li>
+                <li><a href="#" class="hover:text-[#4E755F] access-login transition-colors">Suasana-Tenang</a></li>
             </ul>
 
-            <div class="flex items-center gap-4">
-                <div class="flex gap-1.5 items-center">
-                    <img src="/assets/images/landing/globe.png" alt="globe" class="h-7 w-7 " />
+            <div class="relative flex gap-4 items-center">
+                <button id="language-btn"
+                    class="flex gap-1.5 items-center cursor-pointer hover:text-[#4E755F] transition-colors">
+                    <img src="/assets/images/landing/globe.png" alt="globe" class="h-7 w-7" />
                     <h2 class="text-base font-semibold hidden sm:block">Bahasa</h2>
-                </div>
+                </button>
 
+                <div id="language-menu"
+                    class="hidden absolute right-15 top-10 md:right-10 md:top-10 w-40 bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
+
+                    <button class="w-full text-left px-4 py-3 hover:bg-[#F0EEE9] transition-colors">
+                        🇮🇩 Indonesia
+                    </button>
+
+                    <button class="w-full text-left px-4 py-3 hover:bg-[#F0EEE9] transition-colors">
+                        🇺🇸 English
+                    </button>
+
+
+                </div>
                 <button id="menu-btn" class="md:hidden flex flex-col gap-1.5 p-1" aria-label="Toggle menu">
                     <span class="line block w-7 h-1 bg-[#414944] rounded"></span>
                     <span class="line block w-7 h-1 bg-[#414944] rounded"></span>
@@ -41,32 +59,32 @@
 
         <div id="mobile-menu" class="md:hidden bg-[#F0EEE9] border-t border-[#d5d3ce]">
             <ul class="flex flex-col text-[#414944] text-base font-semibold px-6 py-4 gap-4">
-                <li><a href="" class="block py-1 hover:text-[#4E755F]">Beranda</a></li>
-                <li><a href="./t-mood.html" class="block py-1 hover:text-[#4E755F]">T-Mood</a></li>
-                <li><a href="#" class="block py-1 hover:text-[#4E755F]">Mulai-Belajar</a></li>
-                <li><a href="#" class="block py-1 hover:text-[#4E755F]">Suasana-Tenang</a></li>
+                <li><a href="./index.html" class="access-login block hover:text-[#4E755F]">Beranda</a></li>
+                <li><a href="./t-mood.html" class="access-login block hover:text-[#4E755F]">T-Mood</a></li>
+                <li><a href="#" class="access-login block hover:text-[#4E755F]">Mulai-Belajar</a></li>
+                <li><a href="#" class="access-login block hover:text-[#4E755F]">Suasana-Tenang</a></li>
             </ul>
         </div>
     </nav>
 
     <main class="bg-[#ECEAE4]">
 
-        <!-- jumbutron -->
+        <!-- jumbotron -->
         <section class="bg-[#D9E9EB] min-h-[80vh] flex items-center">
             <div
-                class="container mx-auto px-5 sm:px-10 py-12 grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-20 items-center">
+                class="container mx-auto px-5 sm:px-10 py-12 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-50 items-center">
 
-                <div class="flex flex-col items-center md:items-start text-center md:text-left order-2 md:order-1">
+                <div class="flex flex-col items-center md:items-start text-center md:text-left order-2 md:order-1 ">
                     <div
                         class="md:pe-0 pe-10 text-[#3E6653] md:text-[128px] text-[70px] font-titan md:leading-22.5 leading-10">
                         YOUR
                     </div>
                     <div
-                        class="flex self-end text-[#BC8E60] md:pe-25 pe-10 font-titan md:text-[64px] text-4xl md:leading-17.5 leading-0 font-titan font-normal ">
+                        class="flex self-end text-[#BC8E60] md:pe-15 pe-10 font-titan md:text-[64px] text-4xl md:leading-17.5 leading-15 font-titan font-normal ">
                         Friend
                     </div>
                     <p
-                        class="mt-6 md:max-w-md max-w-10 text-[#414944] font-tirra  md:text-base text-sm font-light leading-relaxed ">
+                        class="md:mt-0 mt-6 md:max-w-md max-w-xs text-[#414944] font-tirra  md:text-base text-sm font-light leading-relaxed ">
                         Tempat terbaik untuk bercerita, mengatur waktu, dan menemukan ketenangan di tengah kesibukan
                         sekolah.
                     </p>
@@ -103,7 +121,7 @@
 
                 <hr class="mb-14 mt-2 border-t-2 border-[#4E755F]" />
 
-                <span class="hidden sm:flex text-white absolute p-3 top-[4.5rem] bg-[#4A6A55] rounded-xl">
+                <span class="hidden sm:flex text-white absolute p-3 top-18 bg-[#4A6A55] rounded-xl">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                         viewBox="0 0 16 16">
                         <path fill-rule="evenodd"
@@ -111,7 +129,7 @@
                     </svg>
                 </span>
 
-                <div class="sm:px-6 lg:px-10 space-y-5">
+                <div class="sm:px-6 md:px-10 space-y-5">
 
                     <div
                         class="bg-[#345341] rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row items-center sm:items-start gap-5">
@@ -125,7 +143,8 @@
                                 yang unik, tulis cerita harianmu dalam jurnal rahasia, dan terima saran aktivitas kustom
                                 pengembang emosimu secara instan.
                             </p>
-                            <a href="#" class="text-[#D9A15C] text-sm mt-3 md:inline-block flex justify-end">Buka Tracker Mood →</a>
+                            <a href="#" class="text-[#D9A15C] text-sm mt-3 md:inline-block flex justify-end">Buka
+                                Tracker Mood →</a>
                         </div>
                     </div>
 
@@ -144,7 +163,8 @@
                                     istirahat peregangan, serta menghitung risiko waktu tidur ideal agar tidak mengantuk
                                     di kelas esok pagi.
                                 </p>
-                                <a href="#" class="text-[#D9A15C] text-sm mt-3 md:inline-block flex justify-end">Alur Waktu Belajar →</a>
+                                <a href="#" class="text-[#D9A15C] text-sm mt-3 md:inline-block flex justify-end">Alur
+                                    Waktu Belajar →</a>
                             </div>
                         </div>
 
@@ -234,33 +254,33 @@
         </section>
 
         <!-- cta -->
-        <section class="px-5 sm:px-10 lg:px-20 pb-16 sm:pb-20">
+        <section class="px-5 sm:px-10 md:px-20 pb-16 sm:pb-20">
             <div
-                class="bg-[#436853] rounded-4xl px-6 sm:px-10 py-8 flex flex-col lg:flex-row items-center justify-between gap-8">
+                class="bg-[#436853] rounded-4xl px-6 sm:px-10 py-8 flex flex-col md:flex-row items-center justify-between gap-8">
 
-                <div class="text-center lg:text-left">
-                    <h2 class="text-2xl sm:text-4xl lg:text-5xl font-titan text-[#C8D9C9] leading-tight mb-4">
+                <div class="text-center md:text-left">
+                    <h2 class="text-2xl sm:text-4xl md:text-5xl font-titan text-[#C8D9C9] leading-tight mb-4">
                         Siap jadi versi <br class="hidden sm:block"> terbaik dirimu hari ini?
                     </h2>
-                    <p class="text-[#DCE4DE] text-sm mb-6 max-w-sm mx-auto lg:mx-0">
+                    <p class="text-[#DCE4DE] text-sm mb-6 max-w-sm mx-auto md:mx-0">
                         Your-Friend siap menemani setiap langkahmu menuju keseimbangan, fokus, dan ketenangan.
                     </p>
-                    <a href="#"
-                        class="inline-block bg-[#C49363] hover:bg-[#b88656] transition-colors px-10 sm:px-12 py-3 rounded-xl font-semibold text-white">
+                    <a href="./beranda.html"
+                        class="access-login inline-block bg-[#C49363] hover:bg-[#b88656] transition-colors px-10 sm:px-12 py-3 rounded-xl font-semibold text-white">
                         Mulai Sekarang
                     </a>
                 </div>
 
                 <div class="shrink-0 md:flex hidden">
                     <img src="./assets/images/landing/cta.png" alt="CTA Illustration"
-                        class="w-[220px] sm:w-[280px] lg:w-[320px] mx-auto">
+                        class="w-[220px] sm:w-[280px] md:w-[320px] mx-auto">
                 </div>
             </div>
         </section>
 
     </main>
 
-    <footer class="bg-[#ECEAE4] py-10 px-5 sm:px-10 lg:px-20">
+    <footer class="bg-[#ECEAE4] py-10 px-5 sm:px-10 md:px-20">
         <hr class="border-[#829186] border-t-2 mb-10">
         <div class="flex flex-col sm:flex-row justify-between gap-8">
 
@@ -295,6 +315,29 @@
         btn.addEventListener('click', () => {
             btn.classList.toggle('active');
             menu.classList.toggle('open');
+        });
+
+        // Akses login
+        const accessLoginElements = document.querySelectorAll('.access-login');
+        accessLoginElements.forEach(element => {
+            element.addEventListener('click', (e) => {
+                const token = localStorage.getItem('token');
+                if (token) return;
+                    e.preventDefault();
+                    window.location.href = './login.html';
+            });
+        });
+
+        const languageBtn = document.getElementById("language-btn");
+        const languageMenu = document.getElementById("language-menu");
+
+        languageBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            languageMenu.classList.toggle("hidden");
+        });
+
+        document.addEventListener("click", () => {
+            languageMenu.classList.add("hidden");
         });
     </script>
 </body>
