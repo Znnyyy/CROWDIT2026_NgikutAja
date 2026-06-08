@@ -19,49 +19,49 @@ document.addEventListener("DOMContentLoaded", () => {
   const menuToggle = document.getElementById("menu-toggle");
   const mobileMenu = document.getElementById("mobile-menu");
 
-  // Break Modal UI Elements
+  // Elemen UI Modal Istirahat
   const breakModal = document.getElementById("break-modal");
   const closeModalBtn = document.getElementById("close-modal-btn");
   const accordionItems = document.querySelectorAll(".accordion-item");
 
-  // --- Timer State ---
-  let hours = 1;
-  let minutes = 0;
+  // --- Status Timer ---
+  let hours = 0;
+  let minutes = 1;
   let seconds = 0;
 
-  // Track the configuration time set by the user so we can reset to it
-  let setHours = 1;
-  let setMinutes = 0;
+  // Lacak konfigurasi waktu yang diatur oleh pengguna agar kita bisa meresetnya
+  let setHours = 0;
+  let setMinutes = 1;
   let setSeconds = 0;
 
-  // Keep track of the active countdown time in seconds
+  // Lacak sisa waktu hitung mundur aktif dalam satuan detik
   let currentSecondsRemaining = 0;
 
   let timerInterval = null;
   let isRunning = false;
   
-  // Break Time Modal State
+  // Status Modal Waktu Istirahat
   let breakShown = false;
   let breakAutoCloseTimeout = null;
   let breakShowCloseBtnTimeout = null;
 
-  // --- Helper Functions ---
+  // --- Fungsi Pembantu ---
 
-  // Update display values
+  // Perbarui nilai tampilan
   function updateDisplay() {
     hoursDisplay.textContent = String(hours).padStart(2, "0");
     minutesDisplay.textContent = String(minutes).padStart(2, "0");
     secondsDisplay.textContent = String(seconds).padStart(2, "0");
   }
 
-  // Toggle control buttons availability
+  // Alihkan ketersediaan tombol kontrol
   function setControlsEnabled(enabled) {
     const controls = [hrUp, hrDown, minUp, minDown, secUp, secDown];
     controls.forEach((btn) => {
       btn.disabled = !enabled;
     });
 
-    // Enable/disable cursor pointer and hover effects on digits
+    // Aktifkan/nonaktifkan pointer kursor dan efek hover pada digit
     const digits = [hoursDisplay, minutesDisplay, secondsDisplay];
     digits.forEach((el) => {
       if (enabled) {
@@ -74,14 +74,14 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Play a premium synthesizer chime sequence using the Web Audio API
+  // Mainkan urutan nada synthesizer premium menggunakan Web Audio API
   function playCompletionChime() {
     try {
       const AudioContext = window.AudioContext || window.webkitAudioContext;
       if (!AudioContext) return;
       const ctx = new AudioContext();
 
-      // Play 3 notes: G5 (783.99 Hz), B5 (987.77 Hz), D6 (1174.66 Hz)
+      // Mainkan 3 nada: G5 (783.99 Hz), B5 (987.77 Hz), D6 (1174.66 Hz)
       const notes = [783.99, 987.77, 1174.66];
       const now = ctx.currentTime;
 
@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
         osc.type = "sine";
         osc.frequency.setValueAtTime(freq, now + index * 0.15);
 
-        // Volume envelope
+        // Amplop volume (envelope)
         gain.gain.setValueAtTime(0.3, now + index * 0.15);
         gain.gain.exponentialRampToValueAtTime(0.01, now + index * 0.15 + 0.4);
 
@@ -103,17 +103,17 @@ document.addEventListener("DOMContentLoaded", () => {
         osc.stop(now + index * 0.15 + 0.55);
       });
     } catch (e) {
-      console.warn("Audio Context is blocked or not supported: ", e);
+      console.warn("Audio Context diblokir atau tidak didukung: ", e);
     }
   }
 
-  // Create a stunning in-card visual overlay toast when the timer ends
+  // Buat toast overlay visual dalam kartu yang memukau saat timer berakhir
   function showCompletionToast() {
-    // Remove existing toast if any
+    // Hapus toast yang sudah ada jika ada
     const existing = document.getElementById("timer-completion-toast");
     if (existing) existing.remove();
 
-    // Create toast container
+    // Buat kontainer toast
     const toast = document.createElement("div");
     toast.id = "timer-completion-toast";
     toast.className =
@@ -127,12 +127,12 @@ document.addEventListener("DOMContentLoaded", () => {
       </button>
     `;
 
-    // Append to the inner card wrapper (which is the parent of the inner layout)
+    // Tambahkan ke pembungkus kartu bagian dalam (yang merupakan induk dari tata letak bagian dalam)
     const innerCard = timerCard.firstElementChild;
-    innerCard.classList.add("relative"); // Ensure relative positioning
+    innerCard.classList.add("relative"); // Pastikan pemosisian relatif
     innerCard.appendChild(toast);
 
-    // Listen to button close
+    // Dengarkan penutupan tombol
     document.getElementById("close-toast-btn").addEventListener("click", () => {
       toast.style.opacity = "0";
       setTimeout(() => {
@@ -140,7 +140,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 500);
     });
 
-    // Auto-remove after 8 seconds
+    // Hapus otomatis setelah 8 detik
     setTimeout(() => {
       if (toast.parentNode) {
         toast.style.opacity = "0";
@@ -149,11 +149,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 8000);
   }
 
-  // Make digits editable via inline input field
+  // Buat digit dapat diedit melalui kolom input inline
   function makeEditable(element, type) {
     if (isRunning) return;
 
-    // Check if there is already an active input
+    // Periksa apakah sudah ada input yang aktif
     if (
       element.nextElementSibling &&
       element.nextElementSibling.tagName === "INPUT"
@@ -165,23 +165,23 @@ document.addEventListener("DOMContentLoaded", () => {
     input.type = "number";
     input.value = currentValue;
 
-    // Exact styling matches: font-titan, sizing, centering, clean background
+    // Gaya desain yang tepat: font-titan, ukuran, pemusatan, latar belakang bersih
     input.className =
-      "font-titan text-[12vw] sm:text-[10vw] md:text-[215px] leading-none text-[#3B5B4E] bg-transparent text-center focus:outline-none border-none p-0 m-0 focus:ring-0 focus:border-none";
+      "font-titan text-[12vw] sm:text-[10vw] md:text-[125px] leading-none text-[#3B5B4E] bg-transparent text-center focus:outline-none border-none p-0 m-0 focus:ring-0 focus:border-none";
     input.style.width = "2.2ch";
 
-    // Set absolute min/max constraints to 59 for all input fields
+    // Atur batasan min/max absolut ke 59 untuk semua kolom input
     input.min = 0;
     input.max = 59;
 
-    // Restrict inputs to exactly 2 digits
+    // Batasi input tepat 2 digit
     input.addEventListener("input", () => {
       if (input.value.length > 2) {
         input.value = input.value.slice(0, 2);
       }
     });
 
-    // Swap displays
+    // Tukar tampilan
     element.style.display = "none";
     element.parentNode.insertBefore(input, element);
 
@@ -198,7 +198,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (isNaN(newValue)) {
         newValue = currentValue;
       } else {
-        // Enforce maximum value of 59 for all fields
+        // Terapkan nilai maksimum 59 untuk semua kolom
         newValue = Math.max(0, Math.min(59, newValue));
         if (type === "hours") {
           hours = newValue;
@@ -228,11 +228,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // --- Timer Actions ---
+  // --- Tindakan Timer ---
 
-  // Start/resume the timer (always overridden to a 1-minute countdown for demo purposes)
+  // Mulai/lanjutkan timer (selalu diganti ke hitung mundur 1 menit untuk keperluan demo)
   function startTimer() {
-    // Check if the configured timer is greater than zero
+    // Periksa apakah timer yang dikonfigurasi lebih besar dari nol
     const totalConfiguredSeconds =
       setHours * 3600 + setMinutes * 60 + setSeconds;
     if (totalConfiguredSeconds <= 0) return;
@@ -240,14 +240,14 @@ document.addEventListener("DOMContentLoaded", () => {
     isRunning = true;
     startText.textContent = "Jeda";
 
-    // Switch play icon to a pause icon dynamically
+    // Ganti ikon putar ke ikon jeda secara dinamis
     startIcon.style.display = "none";
     let pauseIcon = document.getElementById("temp-pause-icon");
     if (!pauseIcon) {
       pauseIcon = document.createElement("i");
       pauseIcon.id = "temp-pause-icon";
       pauseIcon.className =
-        "fa-solid fa-pause text-2xl sm:text-4xl md:text-5xl mr-2 sm:mr-4";
+        "fa-solid fa-pause text-2xl sm:text-3xl md:text-4xl mr-2 sm:mr-4";
       startBtn.insertBefore(pauseIcon, startText);
     } else {
       pauseIcon.style.display = "inline-block";
@@ -256,7 +256,7 @@ document.addEventListener("DOMContentLoaded", () => {
     setControlsEnabled(false);
     timerCard.classList.add("timer-card-active");
 
-    // Overwrite the ticking time to exactly 1 minute (60 seconds) for this web design presentation
+    // Tulis ulang waktu yang berjalan tepat 1 menit (60 detik) untuk presentasi desain web ini
     if (currentSecondsRemaining <= 0) {
       currentSecondsRemaining = 60;
       hours = 0;
@@ -268,20 +268,20 @@ document.addEventListener("DOMContentLoaded", () => {
     timerInterval = setInterval(() => {
       currentSecondsRemaining--;
 
-      // TRIGGER BREAK MODAL:
-      // If 25 seconds have passed (60 - 25 = 35) and break hasn't been shown yet
-      if (currentSecondsRemaining === 35 && !breakShown) {
+      // PEMICU MODAL ISTIRAHAT:
+      // Jika 25 detik telah berlalu (60 - 25 = 35) dan waktu istirahat belum ditampilkan
+      if (currentSecondsRemaining === 57 && !breakShown) {
         breakShown = true;
         showBreakModal();
-        return; // stop executing the rest of this tick
+        return; // hentikan eksekusi sisa detik ini
       }
 
       if (currentSecondsRemaining <= 0) {
         clearInterval(timerInterval);
         currentSecondsRemaining = 0;
-        breakShown = false; // Reset for next run
+        breakShown = false; // Atur ulang status modal istirahat
 
-        // Restore user's configured custom time
+        // Kembalikan waktu khusus yang dikonfigurasi pengguna
         hours = setHours;
         minutes = setMinutes;
         seconds = setSeconds;
@@ -289,7 +289,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         playCompletionChime();
         showCompletionToast();
-        pauseTimer(); // resets button states
+        pauseTimer(); // atur ulang status tombol
         return;
       }
 
@@ -316,37 +316,37 @@ document.addEventListener("DOMContentLoaded", () => {
   function resetTimer() {
     pauseTimer();
     currentSecondsRemaining = 0;
-    breakShown = false; // Reset break modal state
+    breakShown = false; // Atur ulang status modal istirahat
     hours = setHours;
     minutes = setMinutes;
     seconds = setSeconds;
     updateDisplay();
   }
 
-  // --- Break Modal Functions ---
+  // --- Fungsi Modal Istirahat ---
   function showBreakModal() {
-    // Pause the active timer interval but keep the "Jeda" UI active on the main card
+    // Jeda interval timer yang aktif tetapi biarkan UI "Jeda" tetap aktif di kartu utama
     clearInterval(timerInterval);
     
-    // Show modal
+    // Tampilkan modal
     if (breakModal) breakModal.classList.remove("hidden");
     
-    // Hide close button initially
+    // Sembunyikan tombol tutup di awal
     if (closeModalBtn) {
       closeModalBtn.classList.add("hidden", "opacity-0");
     }
     
-    // 10-second wait before showing the close button
+    // Tunggu 10 detik sebelum menampilkan tombol tutup
     breakShowCloseBtnTimeout = setTimeout(() => {
       if (closeModalBtn) {
         closeModalBtn.classList.remove("hidden");
-        // small delay to let display:block apply before transitioning opacity
+        // sedikit keterlambatan untuk membiarkan display:block diterapkan sebelum transisi opacity
         setTimeout(() => {
           closeModalBtn.classList.remove("opacity-0");
         }, 50);
       }
 
-      // 5-second wait to auto-close after button appears
+      // Tunggu 5 detik untuk menutup otomatis setelah tombol muncul
       breakAutoCloseTimeout = setTimeout(() => {
         closeBreakModal();
       }, 5000);
@@ -360,7 +360,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
     if (breakModal) breakModal.classList.add("hidden");
     
-    // Resume timer logic
+    // Lanjutkan logika timer
     startTimer();
   }
 
@@ -368,14 +368,14 @@ document.addEventListener("DOMContentLoaded", () => {
     closeModalBtn.addEventListener("click", closeBreakModal);
   }
 
-  // Break Modal Accordion Logic
+  // Logika Akordeon Modal Istirahat
   accordionItems.forEach(item => {
     item.addEventListener("click", () => {
       const content = item.querySelector(".accordion-content");
       const icon = item.querySelector(".accordion-icon");
       
       if (content.classList.contains("hidden")) {
-        // Open
+        // Buka
         content.classList.remove("hidden");
         content.classList.add("flex");
         if (icon) {
@@ -383,7 +383,7 @@ document.addEventListener("DOMContentLoaded", () => {
           icon.classList.add("fa-chevron-up");
         }
       } else {
-        // Close
+        // Tutup
         content.classList.add("hidden");
         content.classList.remove("flex");
         if (icon) {
@@ -394,9 +394,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // --- Click Event Listeners ---
+  // --- Pendengar Acara Klik (Click Event Listeners) ---
 
-  // Digit displays edit triggers
+  // Pemicu edit tampilan digit
   hoursDisplay.addEventListener("click", () =>
     makeEditable(hoursDisplay, "hours"),
   );
@@ -407,7 +407,7 @@ document.addEventListener("DOMContentLoaded", () => {
     makeEditable(secondsDisplay, "seconds"),
   );
 
-  // Play/Pause button toggle
+  // Alihkan tombol Play/Pause
   startBtn.addEventListener("click", () => {
     if (isRunning) {
       pauseTimer();
@@ -416,12 +416,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Reset button
+  // Tombol reset
   resetBtn.addEventListener("click", () => {
     resetTimer();
   });
 
-  // Hours adjustment (now caps at 59 and wraps to 0)
+  // Penyesuaian jam (sekarang dibatasi di 59 dan kembali ke 0)
   hrUp.addEventListener("click", () => {
     hours = (hours + 1) % 60;
     setHours = hours;
@@ -433,7 +433,7 @@ document.addEventListener("DOMContentLoaded", () => {
     updateDisplay();
   });
 
-  // Minutes adjustment (caps at 59 and wraps to 0)
+  // Penyesuaian menit (dibatasi di 59 dan kembali ke 0)
   minUp.addEventListener("click", () => {
     minutes = (minutes + 1) % 60;
     setMinutes = minutes;
@@ -445,7 +445,7 @@ document.addEventListener("DOMContentLoaded", () => {
     updateDisplay();
   });
 
-  // Seconds adjustment (caps at 59 and wraps to 0)
+  // Penyesuaian detik (dibatasi di 59 dan kembali ke 0)
   secUp.addEventListener("click", () => {
     seconds = (seconds + 1) % 60;
     setSeconds = seconds;
@@ -457,7 +457,7 @@ document.addEventListener("DOMContentLoaded", () => {
     updateDisplay();
   });
 
-  // --- Mobile Menu Toggle ---
+  // --- Alihkan Menu Seluler ---
   if (menuToggle && mobileMenu) {
     menuToggle.addEventListener("click", () => {
       mobileMenu.classList.toggle("hidden");
@@ -471,7 +471,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    // Close menu when clicking outside of navbar
+    // Tutup menu saat mengklik di luar navbar
     document.addEventListener("click", (e) => {
       if (!menuToggle.contains(e.target) && !mobileMenu.contains(e.target)) {
         mobileMenu.classList.add("hidden");
@@ -481,9 +481,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Initialize hover/pointer visual states
+  // Inisialisasi status visual hover/pointer
   setControlsEnabled(true);
 
-  // --- Initial Render ---
+  // --- Render Awal ---
   updateDisplay();
 });

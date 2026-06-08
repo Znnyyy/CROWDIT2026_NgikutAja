@@ -9,10 +9,10 @@ body::before {
   position: fixed;
   inset: 0;
   background-image: url('/assets/images/mulai-belajar/mulai-belajar-bg.png');
-  background-size: 2451px;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  filter: blur(5px);
+  filter: blur(3px);
   transform: scale(1.05); /* biar blur tidak crop pinggir */
   z-index: -1;
 }
