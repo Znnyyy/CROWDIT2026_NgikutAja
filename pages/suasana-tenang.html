@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/assets/CSS/output.css" />
     <link rel="stylesheet" href="/assets/CSS/global.css" />
     <link rel="stylesheet" href="/assets/CSS/suasana-tenang.css" />
+    <link rel="icon" type="image/svg+xml" href="./assets/images/favicon.svg">
 
     <!-- Font -->
     <link
@@ -167,11 +168,14 @@
         class="relative w-full h-[350px] md:h-[450px] bg-[#E8EBE4] rounded-[30px] overflow-hidden flex items-center p-8 md:p-16 shadow-sm border border-[#DCE0D9]"
       >
         <!-- Background Image -->
-        <img
-          src="/assets/images/suasana-tenang/banner-st.png"
-          alt=""
-          class="absolute inset-0 w-full h-full object-cover pointer-events-none"
-        />
+        <picture class="absolute inset-0 block w-full h-full pointer-events-none">
+          <source media="(max-width: 767px)" srcset="/assets/images/suasana-tenang/banner-st-mobile.png" />
+          <img
+            src="/assets/images/suasana-tenang/banner-st.png"
+            alt=""
+            class="w-full h-full object-cover mask-right pointer-events-none"
+          />
+        </picture>
         <div
           class="absolute inset-0 bg-gradient-to-r from-[#F9F8F3]/50 to-transparent pointer-events-none"
         ></div>
