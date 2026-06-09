@@ -64,6 +64,26 @@ function renderResultPage() {
     latestWaktuBadge.textContent = "Kosong";
   }
 
+  // Sesuaikan posisi top karakter berdasarkan jumlah data di local storage (filledSlots)
+  if (cardTopImg) {
+    // Hapus class top bawaan jika ada
+    cardTopImg.classList.remove("-top-1", "top-10", "top-20", "-top-12");
+    
+    if (filledSlots.length === 1) {
+      cardTopImg.style.top = "130px"; // Menyesuaikan agar berada di atas cairan 30%
+      cardTopImg.classList.add("top-20");
+    } else if (filledSlots.length === 2) {
+      cardTopImg.style.top = "55px";  // Menyesuaikan agar berada di atas cairan 60%
+      cardTopImg.classList.add("top-10");
+    } else if (filledSlots.length === 3) {
+      cardTopImg.style.top = "-4px";  // Menyesuaikan agar berada di atas cairan 90% (paling tinggi)
+      cardTopImg.classList.add("-top-1");
+    } else {
+      cardTopImg.style.top = "208px"; // Berada di dasar gelas jika kosong
+      cardTopImg.classList.add("top-20");
+    }
+  }
+
   // Render lapisan gelas kaca
   const liquidContainer = document.getElementById("liquid-container");
   const liquidLayers = document.getElementById("liquid-layers");
