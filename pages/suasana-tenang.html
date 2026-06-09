@@ -6,6 +6,7 @@
     <title>Your-Friend - Suasana Tenang</title>
 
     <link rel="stylesheet" href="/assets/CSS/output.css" />
+    <link rel="stylesheet" href="/assets/CSS/global.css" />
     <link rel="stylesheet" href="/assets/CSS/suasana-tenang.css" />
 
     <!-- Font -->
@@ -20,11 +21,19 @@
   </head>
   <style>
     #player-bar .custom-slider {
-      background: linear-gradient(to right, #7F9A90 0%, #7F9A90 0%, #395448 0%, #395448 100%);
+      background: linear-gradient(
+        to right,
+        #7f9a90 0%,
+        #7f9a90 0%,
+        #395448 0%,
+        #395448 100%
+      );
     }
     /* Player enlarge when playing - responsive sizes */
     #player-bar .cover-wrapper {
-      transition: transform 0.35s ease, box-shadow 0.35s ease;
+      transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
       will-change: transform;
     }
 
@@ -35,7 +44,7 @@
     }
     #player-bar.playing .cover-wrapper {
       transform: scale(1.12);
-      box-shadow: 0 6px 18px rgba(42,64,51,0.25);
+      box-shadow: 0 6px 18px rgba(42, 64, 51, 0.25);
     }
 
     /* Medium screens */
@@ -46,7 +55,7 @@
       }
       #player-bar.playing .cover-wrapper {
         transform: scale(1.18);
-        box-shadow: 0 8px 22px rgba(42,64,51,0.33);
+        box-shadow: 0 8px 22px rgba(42, 64, 51, 0.33);
       }
     }
 
@@ -58,7 +67,7 @@
       }
       #player-bar.playing .cover-wrapper {
         transform: scale(1.35);
-        box-shadow: 0 10px 30px rgba(42,64,51,0.45);
+        box-shadow: 0 10px 30px rgba(42, 64, 51, 0.45);
       }
     }
 
@@ -81,90 +90,75 @@
     }
   </style>
   <body>
-    <!-- Header -->
-    <nav
-      class="bg-[#F0EEE9] flex justify-between px-4 sm:px-8 md:px-12 items-center h-14 md:h-16 text-[#414944] relative z-50 shadow-sm"
-    >
+     <!-- Navbar -->
+  <nav class="bg-[#F0EEE9] px-4 sm:px-8 md:px-12 h-14 md:h-16 text-[#414944] sticky top-0 z-50 shadow-sm">
+
+    <div class="flex justify-between items-center h-full text-[#414944]">
+
       <div class="flex items-center gap-1 sm:gap-2">
-        <img
-          src="/assets/images/logo.png"
-          alt="Your-Friend"
-          class="h-8 w-8 md:h-10 md:w-10"
-        />
-        <h1 class="text-lg sm:text-xl md:text-xl font-bold">Y-Friend</h1>
+        <a href="../index.html">
+          <img src="../assets/images/landing/logo.png" alt="Your-Friend" class="h-8 w-8 md:h-10 md:w-10" />
+        </a>
+        <a href="../index.html">
+          <h1 class="text-lg sm:text-xl md:text-xl font-titan ">Y-Friend</h1>
+        </a>
       </div>
 
-      <!-- Desktop Navigation -->
-      <ul
-        class="hidden lg:flex gap-6 lg:gap-10 text-sm lg:text-sm font-medium"
-      >
-        <li class="hover:text-[#587966] transition-colors">
-          <a href="/index.html">Beranda</a>
-        </li>
-        <li class="hover:text-[#587966] transition-colors">
-          <a href="#">T-Mood</a>
-        </li>
-        <li class="hover:text-[#587966] transition-colors">
-          <a href="/pages/mulai-belajar.html">Mulai-Belajar</a>
-        </li>
-        <li class="hover:text-[#587966] transition-colors">
-          <a
-            href="/pages/suasana-tenang.html"
-            class="text-[#587966] font-bold border-b-2 border-[#587966] pb-1"
-            >Suasana-Tenang</a
-          >
-        </li>
+      <ul class="hidden lg:flex gap-6 lg:gap-10 text-sm lg:text-sm font-medium">
+        <li><a href="../index.html" class="hover:text-[#587966] access-login transition-colors"
+            data-translate="nav_beranda">Beranda</a></li>
+        <li><a href="./t-mood.html"
+            class="hover:text-[#587966] access-login transition-colors "
+            data-translate="nav_tmood">T-Mood</a></li>
+        <li><a href="./mulai-belajar.html" class="hover:text-[#587966] access-login transition-colors"
+            data-translate="nav_mulai_belajar">Mulai-Belajar</a></li>
+        <li><a href="./suasana-tenang.html" class="hover:text-[#587966] access-login transition-colors text-[#587966] font-bold border-b-2 border-[#587966] pb-1"
+            data-translate="nav_suasana_tenang">Suasana-Tenang</a></li>
       </ul>
 
-      <div class="flex items-center gap-4">
-        <div class="flex gap-1 sm:gap-2 items-center">
-          <img
-            src="/assets/images/globe.png"
-            alt="globe"
-            class="h-5 w-5 md:h-5 md:w-5"
-          />
-          <h2 class="text-xs md:text-sm font-semibold hidden sm:inline">
-            Bahasa
-          </h2>
-        </div>
+      <div class="relative flex gap-4 items-center">
+        <button id="language-btn"
+          class="flex gap-1 sm:gap-2 items-center cursor-pointer hover:text-[#587966] transition-colors focus:outline-none">
+          <img src="../assets/images/globe.png" alt="globe" class="h-5 w-5 md:h-5 md:w-5" />
+          <h2 class="text-xs md:text-sm font-semibold hidden sm:inline" data-translate="nav_bahasa">Bahasa</h2>
+        </button>
 
-        <!-- Mobile Menu Hamburger Button -->
-        <button
-          id="menu-toggle"
-          class="lg:hidden text-[#414944] focus:outline-none hover:text-[#587966] transition-colors p-2"
-          aria-label="Toggle menu"
-        >
-          <i class="fa-solid fa-bars fa-xl"></i>
+        <div id="language-menu"
+          class="hidden absolute right-0 top-full mt-2 w-40 bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden z-50">
+
+          <button class="w-full text-left px-4 py-3 hover:bg-[#F0EEE9] transition-colors">
+            🇮🇩 Indonesia
+          </button>
+
+          <button class="w-full text-left px-4 py-3 hover:bg-[#F0EEE9] transition-colors">
+            🇺🇸 English
+          </button>
+
+        </div>
+        <button id="menu-btn" class="lg:hidden flex flex-col gap-1.5 p-1" aria-label="Toggle menu">
+          <span class="line block w-7 h-1 bg-[#414944] rounded"></span>
+          <span class="line block w-7 h-1 bg-[#414944] rounded"></span>
+          <span class="line block w-7 h-1 bg-[#414944] rounded"></span>
         </button>
       </div>
+    </div>
 
-      <!-- Mobile Navigation Dropdown -->
-      <div
-        id="mobile-menu"
-        class="hidden absolute top-14 left-0 w-full bg-[#F0EEE9] border-t border-[#E4E2DC] flex flex-col items-center gap-4 py-6 shadow-md transition-all duration-300 md:hidden"
-      >
-        <a
-          href="/index.html"
-          class="w-full text-center py-2 hover:bg-[#E4E2DC] transition-colors font-medium"
-          >Beranda</a
-        >
-        <a
-          href="#"
-          class="w-full text-center py-2 hover:bg-[#E4E2DC] transition-colors font-medium"
-          >T-Mood</a
-        >
-        <a
-          href="/pages/mulai-belajar.html"
-          class="w-full text-center py-2 hover:bg-[#E4E2DC] transition-colors font-medium"
-          >Mulai-Belajar</a
-        >
-        <a
-          href="/pages/suasana-tenang.html"
-          class="w-full text-center py-2 hover:bg-[#E4E2DC] bg-[#E4E2DC]/50 text-[#587966] font-bold transition-colors"
-          >Suasana-Tenang</a
-        >
-      </div>
-    </nav>
+    <div id="mobile-menu"
+      class="lg:hidden absolute top-14 md:top-16 left-0 w-full bg-[#F0EEE9] border-t border-[#E4E2DC] shadow-md transition-all duration-300">
+      <ul class="flex flex-col items-center text-[#414944] text-sm font-medium py-4 gap-2">
+        <li class="w-full text-center"><a href="../index.html"
+            class="access-login block py-2 hover:bg-[#E4E2DC] transition-colors"
+            data-translate="nav_beranda">Beranda</a></li>
+        <li class="w-full text-center"><a href="./t-mood.html"
+            class="access-login block py-2  hover:bg-[#E4E2DC] transition-colors"
+            data-translate="nav_tmood">T-Mood</a></li>
+        <li class="w-full text-center"><a href="./mulai-belajar.html" class="access-login block py-2 hover:bg-[#E4E2DC] transition-colors"
+            data-translate="nav_mulai_belajar">Mulai-Belajar</a></li>
+        <li class="w-full text-center"><a href="./suasana-tenang.html" class="access-login block py-2 bg-[#E4E2DC]/50 text-[#587966] font-bold hover:bg-[#E4E2DC] transition-colors"
+            data-translate="nav_suasana_tenang">Suasana-Tenang</a></li>
+      </ul>
+    </div>
+  </nav>
     <main
       class="bg-[#F9F8F3] min-h-screen px-4 sm:px-8 md:px-12 lg:px-16 py-6 flex flex-col gap-8 pb-40 md:pb-32"
     >
@@ -176,10 +170,10 @@
         <img
           src="/assets/images/suasana-tenang/banner-st.png"
           alt=""
-          class="absolute inset-0 w-full h-full object-cover pointer-events-none opacity-90"
+          class="absolute inset-0 w-full h-full object-cover pointer-events-none"
         />
         <div
-          class="absolute inset-0 bg-gradient-to-r from-[#F9F8F3]/90 to-transparent pointer-events-none"
+          class="absolute inset-0 bg-gradient-to-r from-[#F9F8F3]/50 to-transparent pointer-events-none"
         ></div>
 
         <div class="relative z-10 max-w-xl">
@@ -224,8 +218,14 @@
           >
             <!-- Cover Image -->
             <div class="absolute inset-0">
-              <img src="/assets/images/suasana-tenang/cover-music/cover-hujan.png" alt="Hujan" class="w-full h-full object-cover opacity-80" />
-              <div class="absolute inset-0 bg-gradient-to-t from-[#2C483A]/90 via-transparent to-transparent"></div>
+              <img
+                src="/assets/images/suasana-tenang/cover-music/cover-hujan.png"
+                alt="Hujan"
+                class="w-full h-full object-cover opacity-80"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-[#2C483A]/90 via-transparent to-transparent"
+              ></div>
 
               <div class="absolute top-6 left-5 opacity-70">
                 <i class="fa-solid fa-cloud-rain text-3xl"></i>
@@ -261,8 +261,14 @@
           >
             <!-- Cover Image -->
             <div class="absolute inset-0">
-              <img src="/assets/images/suasana-tenang/cover-music/cover-hutan.png" alt="Hutan" class="w-full h-full object-cover opacity-80" />
-              <div class="absolute inset-0 bg-gradient-to-t from-[#263D27]/90 via-transparent to-transparent"></div>
+              <img
+                src="/assets/images/suasana-tenang/cover-music/cover-hutan.png"
+                alt="Hutan"
+                class="w-full h-full object-cover opacity-80"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-[#263D27]/90 via-transparent to-transparent"
+              ></div>
 
               <div class="absolute top-6 left-5 opacity-70">
                 <i class="fa-solid fa-tree text-3xl"></i>
@@ -298,8 +304,14 @@
           >
             <!-- Cover Image -->
             <div class="absolute inset-0">
-              <img src="/assets/images/suasana-tenang/cover-music/cover-sungai.png" alt="Sungai" class="w-full h-full object-cover opacity-80" />
-              <div class="absolute inset-0 bg-gradient-to-t from-[#2D5054]/90 via-transparent to-transparent"></div>
+              <img
+                src="/assets/images/suasana-tenang/cover-music/cover-sungai.png"
+                alt="Sungai"
+                class="w-full h-full object-cover opacity-80"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-[#2D5054]/90 via-transparent to-transparent"
+              ></div>
 
               <div class="absolute top-6 left-5 opacity-70">
                 <i class="fa-solid fa-water text-3xl"></i>
@@ -335,8 +347,14 @@
           >
             <!-- Cover Image -->
             <div class="absolute inset-0">
-              <img src="/assets/images/suasana-tenang/cover-music/cover-api-unggun.png" alt="Api Unggun" class="w-full h-full object-cover opacity-80" />
-              <div class="absolute inset-0 bg-gradient-to-t from-[#2B353A]/90 via-transparent to-transparent"></div>
+              <img
+                src="/assets/images/suasana-tenang/cover-music/cover-api-unggun.png"
+                alt="Api Unggun"
+                class="w-full h-full object-cover opacity-80"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-[#2B353A]/90 via-transparent to-transparent"
+              ></div>
 
               <div class="absolute top-6 left-5 opacity-70">
                 <i class="fa-solid fa-fire text-3xl"></i>
@@ -372,8 +390,14 @@
           >
             <!-- Cover Image -->
             <div class="absolute inset-0">
-              <img src="/assets/images/suasana-tenang/cover-music/cover-angin.png" alt="Angin" class="w-full h-full object-cover opacity-80" />
-              <div class="absolute inset-0 bg-gradient-to-t from-[#455A46]/90 via-transparent to-transparent"></div>
+              <img
+                src="/assets/images/suasana-tenang/cover-music/cover-angin.png"
+                alt="Angin"
+                class="w-full h-full object-cover opacity-80"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-[#455A46]/90 via-transparent to-transparent"
+              ></div>
 
               <div class="absolute top-6 left-5 opacity-70">
                 <i class="fa-solid fa-wind text-3xl"></i>
@@ -409,8 +433,14 @@
           >
             <!-- Cover Image -->
             <div class="absolute inset-0">
-              <img src="/assets/images/suasana-tenang/cover-music/cover-malam.png" alt="Malam Tenang" class="w-full h-full object-cover opacity-80" />
-              <div class="absolute inset-0 bg-gradient-to-t from-[#142332]/90 via-transparent to-transparent"></div>
+              <img
+                src="/assets/images/suasana-tenang/cover-music/cover-malam.png"
+                alt="Malam Tenang"
+                class="w-full h-full object-cover opacity-80"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-[#142332]/90 via-transparent to-transparent"
+              ></div>
 
               <div class="absolute top-6 left-5 opacity-70">
                 <i class="fa-solid fa-moon text-3xl"></i>
@@ -456,17 +486,28 @@
         <div
           class="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 rounded-[10px] md:rounded-[14px] shrink-0 overflow-hidden shadow-lg cover-wrapper"
         >
-          <img id="player-cover" src="/assets/images/suasana-tenang/cover-music/cover-hujan.png" alt="Hujan" class="w-full h-full object-cover" />
+          <img
+            id="player-cover"
+            src="/assets/images/suasana-tenang/cover-music/cover-hujan.png"
+            alt="Hujan"
+            class="w-full h-full object-cover"
+          />
         </div>
         <div class="flex flex-col truncate">
           <span
             class="hidden md:block text-[8px] md:text-[10px] text-[#A9BDB0] uppercase font-bold tracking-wider mb-1"
             >Sedang Diputar</span
           >
-          <h4 id="player-title" class="font-titan text-white text-sm sm:text-base md:text-lg truncate">
+          <h4
+            id="player-title"
+            class="font-titan text-white text-sm sm:text-base md:text-lg truncate"
+          >
             Hujan
           </h4>
-          <p id="player-description" class="text-[#A9BDB0] text-[10px] sm:text-xs truncate">
+          <p
+            id="player-description"
+            class="text-[#A9BDB0] text-[10px] sm:text-xs truncate"
+          >
             Gemericik hujan yang menenangkan
           </p>
         </div>
@@ -477,7 +518,9 @@
         class="flex flex-col items-center justify-center gap-1.5 w-full md:w-2/4 order-2 md:order-none"
       >
         <div class="flex items-center justify-center gap-6 text-white">
-          <button class="opacity-70 hover:opacity-100 transition-opacity hidden sm:block">
+          <button
+            class="opacity-70 hover:opacity-100 transition-opacity hidden sm:block"
+          >
             <i class="fa-solid fa-shuffle text-lg"></i>
           </button>
           <button class="opacity-70 hover:opacity-100 transition-opacity">
@@ -492,12 +535,18 @@
           <button class="opacity-70 hover:opacity-100 transition-opacity">
             <i class="fa-solid fa-forward-step text-xl"></i>
           </button>
-          <button class="opacity-70 hover:opacity-100 transition-opacity hidden sm:block">
+          <button
+            class="opacity-70 hover:opacity-100 transition-opacity hidden sm:block"
+          >
             <i class="fa-solid fa-repeat text-lg"></i>
           </button>
         </div>
         <div class="flex items-center gap-2 w-full max-w-md">
-          <span id="current-time" class="text-[10px] md:text-xs text-[#A9BDB0] w-8 md:w-10 text-right">0:00</span>
+          <span
+            id="current-time"
+            class="text-[10px] md:text-xs text-[#A9BDB0] w-8 md:w-10 text-right"
+            >0:00</span
+          >
           <!-- Custom Slider for Progress -->
           <input
             id="progress-bar"
@@ -507,15 +556,24 @@
             value="0"
             class="custom-slider flex-grow"
           />
-          <span id="duration" class="text-[10px] md:text-xs text-[#A9BDB0] w-8 md:w-10">0:00</span>
+          <span
+            id="duration"
+            class="text-[10px] md:text-xs text-[#A9BDB0] w-8 md:w-10"
+            >0:00</span
+          >
         </div>
       </div>
 
       <!-- Right Controls (Volume & Timer) -->
-      <div class="flex items-center justify-end gap-4 w-[35%] md:w-1/4 order-1 md:order-none shrink-0">
+      <div
+        class="flex items-center justify-end gap-4 w-[35%] md:w-1/4 order-1 md:order-none shrink-0"
+      >
         <!-- Volume -->
         <div class="hidden md:flex items-center gap-2 w-32">
-          <i id="volume-icon" class="fa-solid fa-volume-high text-white text-sm opacity-70"></i>
+          <i
+            id="volume-icon"
+            class="fa-solid fa-volume-high text-white text-sm opacity-70"
+          ></i>
           <input
             id="volume-slider"
             type="range"
@@ -526,16 +584,23 @@
           />
         </div>
         <!-- Timer Menu -->
-        <div class="relative flex items-center gap-2 cursor-pointer group" id="timer-btn">
+        <div
+          class="relative flex items-center gap-2 cursor-pointer group"
+          id="timer-btn"
+        >
           <i
             class="fa-regular fa-clock text-white text-lg md:text-xl opacity-70 group-hover:opacity-100 transition-opacity"
           ></i>
           <div class="flex flex-col">
-            <span class="hidden sm:block text-[9px] md:text-[10px] text-[#A9BDB0]">Timer Tidur</span>
+            <span
+              class="hidden sm:block text-[9px] md:text-[10px] text-[#A9BDB0]"
+              >Timer Tidur</span
+            >
             <div
               class="flex items-center gap-1 text-white text-[10px] md:text-xs font-semibold"
             >
-              <span id="timer-display">Matikan</span> <i class="fa-solid fa-chevron-down text-[10px] ml-1"></i>
+              <span id="timer-display">Matikan</span>
+              <i class="fa-solid fa-chevron-down text-[10px] ml-1"></i>
             </div>
           </div>
 
@@ -544,11 +609,36 @@
             id="timer-dropdown"
             class="hidden absolute bottom-12 right-0 w-36 bg-[#263D31] border border-[#587B6C] rounded-[14px] shadow-xl p-2 flex flex-col gap-1 z-50 text-white text-xs"
           >
-            <button class="timer-option text-left px-3 py-1.5 rounded-lg hover:bg-[#395448]/50 transition-colors" data-minutes="15">15 Menit</button>
-            <button class="timer-option text-left px-3 py-1.5 rounded-lg hover:bg-[#395448]/50 transition-colors" data-minutes="30">30 Menit</button>
-            <button class="timer-option text-left px-3 py-1.5 rounded-lg hover:bg-[#395448]/50 transition-colors" data-minutes="45">45 Menit</button>
-            <button class="timer-option text-left px-3 py-1.5 rounded-lg hover:bg-[#395448]/50 transition-colors" data-minutes="60">60 Menit</button>
-            <button class="timer-option text-left px-3 py-1.5 rounded-lg hover:bg-[#395448]/50 transition-colors font-bold text-red-300 border-t border-[#395448]/50 mt-1 pt-1.5" data-minutes="0">Matikan</button>
+            <button
+              class="timer-option text-left px-3 py-1.5 rounded-lg hover:bg-[#395448]/50 transition-colors"
+              data-minutes="15"
+            >
+              15 Menit
+            </button>
+            <button
+              class="timer-option text-left px-3 py-1.5 rounded-lg hover:bg-[#395448]/50 transition-colors"
+              data-minutes="30"
+            >
+              30 Menit
+            </button>
+            <button
+              class="timer-option text-left px-3 py-1.5 rounded-lg hover:bg-[#395448]/50 transition-colors"
+              data-minutes="45"
+            >
+              45 Menit
+            </button>
+            <button
+              class="timer-option text-left px-3 py-1.5 rounded-lg hover:bg-[#395448]/50 transition-colors"
+              data-minutes="60"
+            >
+              60 Menit
+            </button>
+            <button
+              class="timer-option text-left px-3 py-1.5 rounded-lg hover:bg-[#395448]/50 transition-colors font-bold text-red-300 border-t border-[#395448]/50 mt-1 pt-1.5"
+              data-minutes="0"
+            >
+              Matikan
+            </button>
           </div>
         </div>
       </div>
@@ -556,5 +646,6 @@
 
     <!-- Scripts -->
     <script src="/assets/JS/suasana-tenang.js"></script>
+    <script src="/assets/JS/navbar.js"></script>
   </body>
 </html>

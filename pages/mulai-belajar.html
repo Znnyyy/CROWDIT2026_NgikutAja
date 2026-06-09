@@ -7,6 +7,7 @@
   <title>Your-Friend - Mulai Belajar</title>
 
   <link rel="stylesheet" href="/assets/CSS/output.css" />
+  <link rel="stylesheet" href="/assets/CSS/global.css" />
   <link rel="stylesheet" href="/assets/CSS/mulai-belajar.css" />
 
   <!-- Font -->
@@ -54,58 +55,63 @@
   </style>
   <!-- Defer loading of timer script -->
   <script src="/assets/JS/mulai-belajar.js" defer></script>
+  <script src="/assets/JS/navbar.js"></script>
 </head>
 
 <body class="flex flex-col min-h-screen">
   <!-- Header -->
-  <nav
-    class="bg-[#F0EEE9] flex justify-between px-4 sm:px-8 md:px-12 items-center h-14 md:h-16 text-[#414944] relative z-50 shadow-sm">
-    <div class="flex items-center gap-1 sm:gap-2">
-      <img src="/assets/images/logo.png" alt="Your-Friend" class="h-8 w-8 md:h-10 md:w-10" />
-      <h1 class="text-lg sm:text-xl md:text-xl font-bold">Y-Friend</h1>
-    </div>
+  <nav class="bg-[#F0EEE9] px-4 sm:px-8 md:px-12 h-14 md:h-16 text-[#414944] sticky top-0 z-50 shadow-sm">
 
-    <!-- Desktop Navigation -->
-    <ul class="hidden lg:flex gap-6 lg:gap-10 text-sm lg:text-sm font-medium">
-      <li class="hover:text-[#587966] transition-colors">
-        <a href="/index.html">Beranda</a>
-      </li>
-      <li class="hover:text-[#587966] transition-colors">
-        <a href="#">T-Mood</a>
-      </li>
-      <li class="hover:text-[#587966] transition-colors">
-        <a href="#" class="text-[#587966] font-bold border-b-2 border-[#587966] pb-1">Mulai-Belajar</a>
-      </li>
-      <li class="hover:text-[#587966] transition-colors">
-        <a href="/pages/suasana-tenang.html">Suasana-Tenang</a>
-      </li>
-    </ul>
+    <div class="flex justify-between items-center h-full text-[#414944]">
 
-    <div class="flex items-center gap-4">
-      <div class="flex gap-1 sm:gap-2 items-center">
-        <img src="/assets/images/globe.png" alt="globe" class="h-5 w-5 md:h-5 md:w-5" />
-        <h2 class="text-xs md:text-sm font-semibold hidden sm:inline">
-          Bahasa
-        </h2>
+      <div class="flex items-center gap-1 sm:gap-2">
+        <a href="../index.html">
+          <img src="/assets/images/landing/logo.png" alt="Your-Friend" class="h-8 w-8 md:h-10 md:w-10" />
+        </a>
+        <a href="../index.html">
+          <h1 class="text-lg sm:text-xl md:text-xl font-titan">Y-Friend</h1>
+        </a>
       </div>
 
-      <!-- Mobile Menu Hamburger Button -->
-      <button id="menu-toggle"
-        class="lg:hidden text-[#414944] focus:outline-none hover:text-[#587966] transition-colors p-2"
-        aria-label="Toggle menu">
-        <i class="fa-solid fa-bars fa-xl"></i>
-      </button>
+      <!-- Desktop Navigation -->
+      <ul class="hidden lg:flex gap-6 lg:gap-10 text-sm lg:text-sm font-medium">
+        <li><a href="../index.html" class="hover:text-[#587966] access-login transition-colors" data-translate="nav_beranda">Beranda</a></li>
+        <li><a href="./t-mood.html" class="hover:text-[#587966] access-login transition-colors" data-translate="nav_tmood">T-Mood</a></li>
+        <li><a href="./mulai-belajar.html" class="hover:text-[#587966] access-login transition-colors text-[#587966] font-bold border-b-2 border-[#587966] pb-1" data-translate="nav_mulai_belajar">Mulai-Belajar</a></li>
+        <li><a href="./suasana-tenang.html" class="hover:text-[#587966] access-login transition-colors" data-translate="nav_suasana_tenang">Suasana-Tenang</a></li>
+      </ul>
+
+      <div class="relative flex gap-4 items-center">
+        <button id="language-btn"
+          class="flex gap-1 sm:gap-2 items-center cursor-pointer hover:text-[#587966] transition-colors focus:outline-none">
+          <img src="/assets/images/globe.png" alt="globe" class="h-5 w-5 md:h-5 md:w-5" />
+          <h2 class="text-xs md:text-sm font-semibold hidden sm:inline" data-translate="nav_bahasa">Bahasa</h2>
+        </button>
+
+        <div id="language-menu"
+          class="hidden absolute right-0 top-full mt-2 w-40 bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden z-50">
+          <button class="w-full text-left px-4 py-3 hover:bg-[#F0EEE9] transition-colors">🇮🇩 Indonesia</button>
+          <button class="w-full text-left px-4 py-3 hover:bg-[#F0EEE9] transition-colors">🇺🇸 English</button>
+        </div>
+
+        <!-- Mobile Menu Hamburger Button -->
+        <button id="menu-btn" class="lg:hidden flex flex-col gap-1.5 p-1" aria-label="Toggle menu">
+          <span class="line block w-7 h-1 bg-[#414944] rounded"></span>
+          <span class="line block w-7 h-1 bg-[#414944] rounded"></span>
+          <span class="line block w-7 h-1 bg-[#414944] rounded"></span>
+        </button>
+      </div>
     </div>
 
     <!-- Mobile Navigation Dropdown -->
     <div id="mobile-menu"
-      class="hidden absolute top-14 left-0 w-full bg-[#F0EEE9] border-t border-[#E4E2DC] flex flex-col items-center gap-4 py-6 shadow-md transition-all duration-300 md:hidden">
-      <a href="/index.html" class="w-full text-center py-2 hover:bg-[#E4E2DC] transition-colors font-medium">Beranda</a>
-      <a href="#" class="w-full text-center py-2 hover:bg-[#E4E2DC] transition-colors font-medium">T-Mood</a>
-      <a href="/pages/mulai-belajar.html"
-        class="w-full text-center py-2 hover:bg-[#E4E2DC] bg-[#E4E2DC]/50 text-[#587966] font-bold transition-colors">Mulai-Belajar</a>
-      <a href="/pages/suasana-tenang.html"
-        class="w-full text-center py-2 hover:bg-[#E4E2DC] transition-colors font-medium">Suasana-Tenang</a>
+      class="lg:hidden absolute top-14 md:top-16 left-0 w-full bg-[#F0EEE9] border-t border-[#E4E2DC] shadow-md transition-all duration-300">
+      <ul class="flex flex-col items-center text-[#414944] text-sm font-medium py-4 gap-2">
+        <li class="w-full text-center"><a href="../index.html" class="access-login block py-2 hover:bg-[#E4E2DC] transition-colors" data-translate="nav_beranda">Beranda</a></li>
+        <li class="w-full text-center"><a href="./t-mood.html" class="access-login block py-2 hover:bg-[#E4E2DC] transition-colors" data-translate="nav_tmood">T-Mood</a></li>
+        <li class="w-full text-center"><a href="./mulai-belajar.html" class="access-login block py-2 bg-[#E4E2DC]/50 text-[#587966] font-bold hover:bg-[#E4E2DC] transition-colors" data-translate="nav_mulai_belajar">Mulai-Belajar</a></li>
+        <li class="w-full text-center"><a href="./suasana-tenang.html" class="access-login block py-2 hover:bg-[#E4E2DC] transition-colors" data-translate="nav_suasana_tenang">Suasana-Tenang</a></li>
+      </ul>
     </div>
   </nav>
 
