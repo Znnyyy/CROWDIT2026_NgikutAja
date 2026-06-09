@@ -427,38 +427,48 @@ document.getElementById("send-mood-btn").addEventListener("click", () => {
     window.location.href = "./result-mood.html";
 });
 
-const cardHistory = document.getElementById("card-history");
+const historyList = document.getElementById("history-list");
 const history = JSON.parse(localStorage.getItem("history")) || {};
 let hasHistory = false;
 
-["pagi", "siang", "malam"].forEach((waktu) => {
-    if (!history[waktu]) return;
+if (historyList) {
+    ["pagi", "siang", "malam"].forEach((waktu) => {
+        if (!history[waktu]) return;
 
-    const moodData = moods.find(m => m.name === history[waktu].mood);
+        const moodData = moods.find(m => m.name === history[waktu].mood);
 
-    if (moodData) {
-        hasHistory = true;
-        const historyCard = document.createElement("div");
+        if (moodData) {
+            hasHistory = true;
+            const historyCard = document.createElement("div");
 
-        historyCard.className = "flex items-center gap-2";
+            historyCard.className = "flex items-center gap-2";
 
-        historyCard.innerHTML = `
-            <img src="${moodData.img}" alt="${moodData.name}" class="w-10 h-10 object-contain" />
-            <div>
-                <div class="text-sm font-bold text-gray-800">${moodData.name}</div>
-                <div class="text-xs text-gray-500 capitalize">${waktu}</div>
-            </div>
-        `;
+            historyCard.innerHTML = `
+                <img src="${moodData.img}" alt="${moodData.name}" class="w-10 h-10 object-contain" />
+                <div>
+                    <div class="text-sm font-bold text-gray-800">${moodData.name}</div>
+                    <div class="text-xs text-gray-500 capitalize">${waktu}</div>
+                </div>
+            `;
 
-        cardHistory.appendChild(historyCard);
+            historyList.appendChild(historyCard);
+        }
+    });
+
+    if (!hasHistory) {
+        const emptyMsg = document.createElement("div");
+        emptyMsg.className = "text-xs text-gray-400 italic py-1 text-center";
+        emptyMsg.textContent = "Belum ada riwayat mood hari ini.";
+        historyList.appendChild(emptyMsg);
     }
-});
+}
 
-if (!hasHistory) {
-    const emptyMsg = document.createElement("div");
-    emptyMsg.className = "text-xs text-gray-400 italic py-1";
-    emptyMsg.textContent = "Belum ada riwayat mood hari ini.";
-    cardHistory.appendChild(emptyMsg);
+// Redirect ke halaman result saat tombol diklik
+const btnGoResult = document.getElementById("btn-go-result");
+if (btnGoResult) {
+    btnGoResult.addEventListener("click", () => {
+        window.location.href = "./result-mood.html";
+    });
 }
 
 // cardHistory.innerHTML = `

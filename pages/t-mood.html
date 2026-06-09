@@ -87,17 +87,24 @@
       class="relative col-span-1 order-1 md:col-span-2 flex-1 flex flex-col items-center justify-start md:justify-center min-h-fit lg:min-h-0 px-4 md:px-6 py-4 gap-6 md:gap-0">
 
       <div
-        class="absolute md:top-4 top-2 md:left-23 left-5 bg-white rounded-2xl rounded-tl-none px-4 py-2.5 shadow-md text-sm font-semibold text-gray-700 z-10 order-1 md:order-0">
+        class="absolute md:top-4 top-2 md:left-23 left-5 bg-white rounded-2xl rounded-tl-none px-4 py-2.5 shadow-md text-sm font-semibold text-gray-700 z-10 order-1 md:order-0 animate-fade-in-down">
         Yuk, Pahami Perasaanmu
       </div>
 
       <div id="card-history"
-        class="static md:absolute md:left-3 md:top-45 md:-translate-y-1/2 bg-white rounded-2xl md:rounded-tl-none px-4 py-2.5 shadow-md text-sm font-semibold text-gray-700 flex flex-col gap-3 w-full max-w-sm md:w-auto order-3 md:order-0 mt-2 md:mt-0">
-        <p>Riwayat Mood Kamu</p>
+        class="static md:absolute md:left-3 md:top-45 md:-translate-y-1/2 bg-white rounded-2xl md:rounded-tl-none px-4 py-3 shadow-md text-sm font-semibold text-gray-700 flex flex-col gap-3 w-full max-w-sm md:min-w-[180px] md:w-auto order-3 md:order-0 mt-2 md:mt-0 animate-fade-in-left delay-100">
+        <p class="font-bold text-gray-800">Riwayat Mood Kamu</p>
         <hr class="border-gray-200">
+        <div id="history-list" class="flex flex-col gap-2.5">
+          <!-- Item riwayat dimasukkan lewat JS -->
+        </div>
+        <button id="btn-go-result" class="w-full mt-1 bg-[#587966] hover:bg-[#4E755F] text-white text-xs font-bold py-2.5 px-3 rounded-xl shadow-sm transition-all duration-200 flex items-center justify-center gap-1.5 active:scale-95 cursor-pointer">
+          <span>Lihat Hasil</span>
+          <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+        </button>
       </div>
 
-      <div class="relative flex items-center justify-center w-64 h-64 md:w-80 md:h-80 order-2 md:order-0">
+      <div class="relative flex items-center justify-center w-64 h-64 md:w-80 md:h-80 order-2 md:order-0 animate-scale-in">
         <div id="char-glow" class="absolute inset-0 rounded-full animate-glow-pulse"></div>
         <img src="" id="char-img" alt="Y-Friend Character"
           class="animate-float relative z-10 w-full h-full object-contain select-none drop-shadow-xl" />
@@ -110,7 +117,7 @@
     </div>
 
     <div
-      class="w-full order-3 md:order-2 bg-white rounded-t-3xl md:rounded-3xl flex flex-col justify-center px-6 md:px-10 py-8 gap-5 shadow-lg md:shadow-none">
+      class="w-full order-3 md:order-2 bg-white rounded-t-3xl md:rounded-3xl flex flex-col justify-center px-6 md:px-10 py-8 gap-5 shadow-lg md:shadow-none animate-fade-in-right delay-200">
       <div>
         <p class="text-sm font-semibold text-gray-500" id="mood-title-label">
           Mood Kamu :
@@ -141,7 +148,7 @@
     </div>
 
     <div
-      class="bg-[#FDF6EE] w-full md:col-span-3 col-span-1 order-2 md:order-3 px-4 md:px-15 flex flex-col items-center py-4 md:py-5">
+      class="bg-[#FDF6EE] w-full md:col-span-3 col-span-1 order-2 md:order-3 px-4 md:px-15 flex flex-col items-center py-4 md:py-5 animate-fade-in-up delay-300">
 
       <div class="relative w-full max-w-5xl group">
         <!-- Left indicator (fade overlay & chevron) -->
