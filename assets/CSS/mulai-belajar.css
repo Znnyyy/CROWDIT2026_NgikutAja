@@ -33,3 +33,63 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
+
+/* Premium Break Modal Slide Down Animation */
+#break-modal {
+  display: flex !important;
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity 0.4s ease;
+}
+
+#break-modal.hidden {
+  display: flex !important;
+  opacity: 0;
+  pointer-events: none;
+}
+
+#break-modal > div {
+  transform: scale(1);
+  transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+#break-modal.hidden > div {
+  transform: scale(0.92);
+}
+
+/* Accordion Dropdown Animations */
+.accordion-content {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  display: flex !important;
+  gap: 1rem;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, margin-top 0.4s ease, padding-top 0.4s ease;
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 2px dashed transparent;
+}
+
+.accordion-item.active .accordion-content {
+  max-height: 300px;
+  opacity: 1;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 2px dashed #A8B7A6;
+}
+
+/* Hover micro-animation for accordion items */
+.accordion-item {
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.accordion-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(88, 123, 108, 0.08);
+  border-color: #A8B7A6;
+}
+
+.accordion-item.active {
+  border-color: #587966;
+  box-shadow: 0 4px 15px rgba(88, 123, 108, 0.12);
+}

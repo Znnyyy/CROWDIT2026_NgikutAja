@@ -368,27 +368,28 @@ document.addEventListener("DOMContentLoaded", () => {
     closeModalBtn.addEventListener("click", closeBreakModal);
   }
 
-  // Logika Akordeon Modal Istirahat
+  // Logika Akordeon Modal Istirahat dengan Animasi
   accordionItems.forEach(item => {
     item.addEventListener("click", () => {
-      const content = item.querySelector(".accordion-content");
-      const icon = item.querySelector(".accordion-icon");
+      const isOpen = item.classList.contains("active");
       
-      if (content.classList.contains("hidden")) {
-        // Buka
-        content.classList.remove("hidden");
-        content.classList.add("flex");
+      // Tutup semua item terlebih dahulu untuk membuat efek akordeon tunggal yang rapi
+      accordionItems.forEach(otherItem => {
+        otherItem.classList.remove("active");
+        const otherIcon = otherItem.querySelector(".accordion-icon");
+        if (otherIcon) {
+          otherIcon.classList.remove("fa-chevron-up");
+          otherIcon.classList.add("fa-chevron-down");
+        }
+      });
+      
+      // Jika item yang diklik sebelumnya tidak aktif, aktifkan sekarang
+      if (!isOpen) {
+        item.classList.add("active");
+        const icon = item.querySelector(".accordion-icon");
         if (icon) {
           icon.classList.remove("fa-chevron-down");
           icon.classList.add("fa-chevron-up");
-        }
-      } else {
-        // Tutup
-        content.classList.add("hidden");
-        content.classList.remove("flex");
-        if (icon) {
-          icon.classList.add("fa-chevron-down");
-          icon.classList.remove("fa-chevron-up");
         }
       }
     });
