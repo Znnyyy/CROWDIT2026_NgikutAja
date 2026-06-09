@@ -441,13 +441,13 @@ if (historyList) {
             hasHistory = true;
             const historyCard = document.createElement("div");
 
-            historyCard.className = "flex items-center gap-2";
+            historyCard.className = "flex flex-col lg:flex-row items-center text-center lg:text-left gap-1 lg:gap-2";
 
             historyCard.innerHTML = `
-                <img src="${moodData.img}" alt="${moodData.name}" class="w-10 h-10 object-contain" />
-                <div>
+                <img src="${moodData.img}" alt="${moodData.name}" class="w-15 lg:w-10 h-15 lg:h-10 object-contain" />
+                <div class="flex flex-col">
                     <div class="text-sm font-bold text-gray-800">${moodData.name}</div>
-                    <div class="text-xs text-gray-500 capitalize">${waktu}</div>
+                    <div class="text-xs text-gray-500 capitalize hidden lg:block">${waktu}</div>
                 </div>
             `;
 
