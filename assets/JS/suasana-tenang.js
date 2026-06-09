@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const playerTitle = document.getElementById("player-title");
   const playerDescription = document.getElementById("player-description");
   const playerCover = document.getElementById("player-cover");
+  const playerBar = document.getElementById("player-bar");
 
   const currentTimeEl = document.getElementById("current-time");
   const durationEl = document.getElementById("duration");
@@ -61,6 +62,17 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       }
     });
+
+    // Perbarui tampilan visual player bawah (tinggi + cover)
+    if (playerBar) {
+      if (!isPaused) {
+        playerBar.classList.add("playing");
+        document.body.classList.add('player-open');
+      } else {
+        playerBar.classList.remove("playing");
+        document.body.classList.remove('player-open');
+      }
+    }
   }
 
   // Mengecilkan volume (fade out) dan menjeda audio dengan halus

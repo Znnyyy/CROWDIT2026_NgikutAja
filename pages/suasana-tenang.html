@@ -22,6 +22,63 @@
     #player-bar .custom-slider {
       background: linear-gradient(to right, #7F9A90 0%, #7F9A90 0%, #395448 0%, #395448 100%);
     }
+    /* Player enlarge when playing - responsive sizes */
+    #player-bar .cover-wrapper {
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+      will-change: transform;
+    }
+
+    /* Small screens */
+    #player-bar.playing {
+      padding-top: 0.75rem;
+      padding-bottom: 0.75rem;
+    }
+    #player-bar.playing .cover-wrapper {
+      transform: scale(1.12);
+      box-shadow: 0 6px 18px rgba(42,64,51,0.25);
+    }
+
+    /* Medium screens */
+    @media (min-width: 768px) {
+      #player-bar.playing {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+      }
+      #player-bar.playing .cover-wrapper {
+        transform: scale(1.18);
+        box-shadow: 0 8px 22px rgba(42,64,51,0.33);
+      }
+    }
+
+    /* Large screens */
+    @media (min-width: 1024px) {
+      #player-bar.playing {
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+      }
+      #player-bar.playing .cover-wrapper {
+        transform: scale(1.35);
+        box-shadow: 0 10px 30px rgba(42,64,51,0.45);
+      }
+    }
+
+    /* Add bottom padding to main when player is opened so content isn't covered */
+    body.player-open main {
+      transition: padding-bottom 0.28s ease;
+      padding-bottom: 14rem; /* enough space for enlarged player */
+    }
+
+    @media (min-width: 768px) {
+      body.player-open main {
+        padding-bottom: 12rem;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      body.player-open main {
+        padding-bottom: 10rem;
+      }
+    }
   </style>
   <body>
     <!-- Header -->
@@ -395,9 +452,9 @@
       id="player-bar"
     >
       <!-- Track Info -->
-      <div class="flex items-center gap-3 w-[60%] md:w-1/4 shrink-0">
+      <div class="flex items-center gap-4 md:gap-5 w-[60%] md:w-1/4 shrink-0">
         <div
-          class="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 rounded-[10px] md:rounded-[14px] shrink-0 overflow-hidden shadow-lg"
+          class="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 rounded-[10px] md:rounded-[14px] shrink-0 overflow-hidden shadow-lg cover-wrapper"
         >
           <img id="player-cover" src="/assets/images/suasana-tenang/cover-music/cover-hujan.png" alt="Hujan" class="w-full h-full object-cover" />
         </div>
