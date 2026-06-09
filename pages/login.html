@@ -5,8 +5,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Y-Friend — Masuk</title>
-  <link rel="stylesheet" href="./assets/CSS/output.css" />
-  <link rel="stylesheet" href="./assets/CSS/global.css" />
+  <link rel="stylesheet" href="../assets/CSS/output.css" />
+  <link rel="stylesheet" href="../assets/CSS/global.css" />
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg" />
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
   <style>
     .input-field:focus {
@@ -18,36 +19,45 @@
   </style>
 </head>
 
-<body class="min-h-screen bg-[#FDF6EE] flex items-center justify-center">
+<body class="min-h-screen bg-white flex items-center justify-center">
 
-  <div class="w-full max-w-6xl bg-white rounded-3xl shadow-2xl shadow-black/10 overflow-hidden flex flex-col md:flex-row min-h-120">
+  <div
+    class="w-full max-w-6xl rounded-3xl overflow-hidden flex flex-col md:flex-row min-h-110 ">
 
-    <div class="relative bg-[#F5E6D8] overflow-hidden shrink-0 rounded-t-3xl rounded-b-4xl md:rounded-t-none md:rounded-l-3xl w-full md:w-[42%] min-h-10 md:min-h-0 flex flex-col">
+    <div
+      class="relative bg-[#F5E6D8] overflow-hidden shrink-0 rounded-t-3xl rounded-b-4xl md:rounded-t-none md:rounded-l-3xl w-full md:w-[42%] md:max-h-screen max-h-15 md:justify-normal justify-center md:min-h-0 flex flex-col">
 
       <div class="relative z-10 flex items-center gap-2 p-5">
-        <img src="./assets/images/login/logo.png" alt="Y-Friend Logo" class="w-auto h-10 sm:h-16 md:h-20" />
+        <img src="../assets/images/login/logo.png" alt="Y-Friend Logo" class="w-auto h-10 sm:h-16 md:h-20" />
       </div>
 
       <div class="absolute bottom-0 left-0 -translate-x-1/2 md:translate-x-0 md:right-0 flex items-end z-0">
-        <img src="./assets/images/login/character.png" alt="Y-Friend Character" class="w-100 h-auto select-none drop-shadow-xl md:inline hidden" />
+        <img src="../assets/images/login/character.png" alt="Y-Friend Character"
+          class="w-100 h-auto select-none drop-shadow-xl md:inline hidden" />
       </div>
     </div>
 
-    <div class="flex-1 flex flex-col justify-center gap-5 px-6 py-8 sm:px-10 md:px-12 xl:px-14">
+    <!-- char mobile -->
+    <div class="absolute bottom-0 z-0 left-10 -translate-x-1/2 md:translate-x-0 md:right-0 flex items-end ">
+      <img src="../assets/images/login/charfull.png" alt="Y-Friend Character"
+        class="w-30 h-auto select-none drop-shadow-xl md:hidden inline" />
+    </div>
 
-      <div class="a1">
-        <h1 class="font-titan text-3xl sm:text-[2.2rem] md:text-[2.8rem] leading-tight text-[#2D5A3D]">
+    <div class="flex-1 flex flex-col justify-center gap-5 px-6 py-8 md:px-12 ">
+    
+      <div class="animate-[fadeUp_.5s_.2s_ease_both]">
+        <h1 class="font-titan text-4xl md:text-5xl leading-tight text-[#2D5A3D]">
           Selamat datang!
         </h1>
-        <p class="font-titan text-md sm:text-xl md:text-[1.4rem] text-[#C9732A] mt-1">
+        <p class="font-titan text-xl md:text-[1.4rem] text-[#C9732A] mt-1">
           Yuk, masuk ke akunmu
         </p>
         <p class="text-gray-400 text-sm mt-2 leading-relaxed">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Ayok Masuk ke akunmu, untuk mengakses kemampuan Y-Friend.
         </p>
       </div>
 
-      <form class="flex flex-col gap-4 a2" >
+      <form class="flex flex-col gap-4 a2">
 
         <div class="flex flex-col gap-1.5">
           <label class="text-sm font-semibold text-gray-700">Email atau Username</label>
@@ -70,7 +80,8 @@
             <input type="password" id="pw"
               class="input-field w-full pl-10 pr-10 py-3 border border-gray-200 rounded-xl bg-gray-50 text-sm text-gray-700 placeholder-gray-400 transition-all duration-200"
               placeholder="Masukan kata sandi" />
-            <button title="Show Password" type="button" onclick="togglePw()" class="absolute inset-y-0 right-3 flex items-center text-gray-400 hover:text-gray-600 transition-colors">
+            <button title="Show Password" type="button" onclick="togglePw()"
+              class="absolute inset-y-0 right-3 flex items-center text-gray-400 hover:text-gray-600 transition-colors">
               <i id="eye-show" data-lucide="eye" class="w-4 h-4"></i>
               <i id="eye-hide" data-lucide="eye-off" class="w-4 h-4 hidden"></i>
             </button>
@@ -85,7 +96,8 @@
           <a href="#" class="text-sm font-semibold text-[#2D5A3D] hover:underline">Lupa kata sandi?</a>
         </div>
 
-        <button type="button" onclick="login()" class="a3 font-titan w-full flex items-center justify-center gap-2 bg-[#2D5A3D] hover:bg-[#3a7a52] active:scale-[.98] text-white text-base tracking-wide py-3.5 rounded-xl border-none cursor-pointer shadow-md shadow-[#2D5A3D]/30 transition-all duration-200">
+        <button type="button" onclick="login()"
+          class="a3 font-titan w-full flex items-center justify-center gap-2 bg-[#2D5A3D] hover:bg-[#3a7a52] active:scale-[.98] text-white text-base tracking-wide py-3.5 rounded-xl border-none cursor-pointer shadow-md shadow-[#2D5A3D]/30 transition-all duration-200">
           Masuk
           <i data-lucide="log-in" class="w-5 h-5"></i>
         </button>
@@ -96,8 +108,10 @@
           <span class="flex-1 h-px bg-gray-200"></span>
         </div>
 
-        <button type="button" class="a4 w-full flex items-center justify-center gap-2.5 bg-white hover:bg-gray-50 active:scale-[.98] text-gray-700 font-semibold text-sm py-3.5 rounded-xl border border-gray-200 cursor-pointer transition-all duration-200">
-          <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google" class="w-5 h-5 shrink-0" />
+        <button type="button"
+          class="a4 w-full flex items-center justify-center gap-2.5 bg-white hover:bg-gray-50 active:scale-[.98] text-gray-700 font-semibold text-sm py-3.5 rounded-xl border border-gray-200 cursor-pointer transition-all duration-200">
+          <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google"
+            class="w-5 h-5 shrink-0" />
           Lanjutkan dengan Google
         </button>
 
@@ -109,6 +123,7 @@
       </p>
 
     </div>
+
   </div>
 
   <script>
@@ -126,7 +141,7 @@
     function login() {
       localStorage.setItem('name', 'user');
       localStorage.setItem('token', 'true');
-      window.location.href = './t-mood.html';
+      window.location.href = '../pages/t-mood.html';
     }
   </script>
 </body>

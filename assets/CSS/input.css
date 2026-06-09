@@ -1,1 +1,57 @@
 @import "tailwindcss";
+
+@theme {
+  --animate-float: floatChar 3s ease-in-out infinite;
+  --animate-glow-pulse: glowPulse 3s ease-in-out infinite;
+
+  @keyframes floatChar {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  @keyframes glowPulse {
+    0%, 100% {
+      opacity: .7;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.08);
+    }
+  }
+}
+
+@utility scrollbar-none {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+#mood-scroll-container {
+  scrollbar-width: thin;
+  scrollbar-color: #587966 rgba(240, 238, 233, 0.5);
+}
+
+#mood-scroll-container::-webkit-scrollbar {
+  height: 6px;
+}
+
+#mood-scroll-container::-webkit-scrollbar-track {
+  background: rgba(240, 238, 233, 0.5);
+  border-radius: 10px;
+}
+
+#mood-scroll-container::-webkit-scrollbar-thumb {
+  background-color: #587966;
+  border-radius: 10px;
+}
+
+#mood-scroll-container::-webkit-scrollbar-thumb:hover {
+  background-color: #466051;
+}

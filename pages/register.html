@@ -5,8 +5,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Y-Friend — Daftar</title>
-  <link rel="stylesheet" href="./assets/CSS/output.css" />
-  <link rel="stylesheet" href="./assets/CSS/global.css" />
+  <link rel="stylesheet" href="../assets/CSS/output.css" />
+  <link rel="stylesheet" href="../assets/CSS/global.css" />
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg" />
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
   <style>
     .input-field:focus {
@@ -52,8 +53,7 @@
 
 <body class="min-h-screen bg-[#FDF6EE] ">
 
-  <div
-    class="w-full bg-[#F0EEE9] rounded-3xl shadow-2xl shadow-black/10 overflow-hidden flex flex-col md:flex-row ">
+  <div class="w-full bg-[#F0EEE9] rounded-3xl shadow-2xl shadow-black/10 overflow-hidden flex flex-col md:flex-row ">
 
     <div class="flex-1 flex flex-col justify-center gap-4 px-6 py-5.5 sm:px-10 md:px-12 xl:px-14 order-2 md:order-1">
 
@@ -63,6 +63,12 @@
         <!-- <p class="text-gray-400 text-sm mt-2 leading-relaxed">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis cum, quibusdam</p> -->
       </div>
 
+      
+      <!-- <div class="absolute top-10 -right-10 z-10 md:translate-x-0 md:right-10 flex items-end "> -->
+    <div class="absolute bottom-0 z-10 left-10 -translate-x-1/2 md:translate-x-0 md:right-0 flex items-end ">
+        <img src="../assets/images/login/charfull.png" alt="Y-Friend Character"
+          class="w-38 h-auto select-none drop-shadow-xl md:hidden inline" />
+      </div>
       <form class="flex flex-col gap-2 a2">
 
         <div class="flex flex-col gap-1.5">
@@ -152,14 +158,13 @@
     </div>
 
     <div
-      class="relative bg-white overflow-hidden shrink-0 rounded-b-3xl md:rounded-b-none md:rounded-r-3xl w-full md:w-[42%] min-h-5 md:min-h-0 flex flex-col order-1 md:order-2">
+      class="relative bg-white overflow-hidden shrink-0 rounded-b-3xl md:rounded-b-none md:rounded-r-3xl w-full md:w-[42%] max-h-10 md:max-h-full md:justify-normal justify-center md:min-h-0 flex flex-col order-1 md:order-2">
 
       <div class="relative z-10 flex items-center gap-2 p-5">
-        <img src="./assets/images/login/logo.png" alt="Y-Friend Logo" class="w-auto h-10 sm:h-14 md:h-16" />
+        <img src="../assets/images/login/logo.png" alt="Y-Friend Logo" class="w-auto h-10 sm:h-14 md:h-16" />
       </div>
-      <div
-        class="absolute bottom-0  -translate-x-1/2 left-0 md:translate-x-0 md:right-0 flex items-center z-0">
-        <img src="./assets/images/login/character.png" alt="Y-Friend Character"
+      <div class="absolute bottom-0  -translate-x-1/2 left-0 md:translate-x-0 md:right-0 flex items-center z-0">
+        <img src="../assets/images/login/character.png" alt="Y-Friend Character"
           class="w-100 h-auto md:inline hidden drop-shadow-xl" />
       </div>
 

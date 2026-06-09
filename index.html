@@ -6,38 +6,46 @@
     <title>Your-Friend</title>
     <link rel="stylesheet" href="./assets/CSS/global.css">
     <link rel="stylesheet" href="./assets/CSS/output.css">
+    <link rel="icon" type="image/svg+xml" href="./assets/images/favicon.svg">
 </head>
 
 <body class="font-tirra">
     <!-- Navbar -->
-    <nav class="bg-[#F0EEE9] sticky top-0 z-50 shadow-sm">
-        <div class="flex justify-between items-center h-20 px-5 sm:px-10 md:px-15 text-[#414944]">
+    <nav class="bg-[#F0EEE9] px-4 sm:px-8 md:px-12 h-14 md:h-16 text-[#414944] sticky top-0 z-50 shadow-sm">
 
-            <div class="flex items-center gap-1.5   ">
-                <a href="./index.html">
-                    <img src="/assets/images/landing/logo.png" alt="Your-Friend" class="h-10 w-10 sm:h-14 sm:w-14" />
+        <div class="flex justify-between items-center h-full text-[#414944]">
+
+            <div class="flex items-center gap-1 sm:gap-2">
+                <a href="../index.html">
+                    <img src="../assets/images/landing/logo.png" alt="Your-Friend" class="h-8 w-8 md:h-10 md:w-10" />
                 </a>
-                <a href="./index.html">
-                    <h1 class="text-2xl sm:text-3xl font-bold font-titan">Y-Friend</h1>
+                <a href="../index.html">
+                    <h1 class="text-lg sm:text-xl md:text-xl font-titan ">Y-Friend</h1>
                 </a>
             </div>
 
-            <ul class="hidden md:flex gap-8 md:gap-16 text-base md:text-lg">
-                <li><a href="" class="hover:text-[#4E755F] access-login transition-colors">Beranda</a></li>
-                <li><a href="./t-mood.html" class="hover:text-[#4E755F] access-login transition-colors">T-Mood</a></li>
-                <li><a href="" class="hover:text-[#4E755F] access-login transition-colors">Mulai-Belajar</a></li>
-                <li><a href="#" class="hover:text-[#4E755F] access-login transition-colors">Suasana-Tenang</a></li>
+            <ul class="hidden lg:flex gap-6 lg:gap-10 text-sm lg:text-sm font-medium">
+                <li><a href="../index.html" class="hover:text-[#587966] access-login transition-colors"
+                        data-translate="nav_beranda">Beranda</a></li>
+                <li><a href="./t-mood.html"
+                        class="hover:text-[#587966] access-login transition-colors text-[#587966] font-bold border-b-2 border-[#587966] pb-1"
+                        data-translate="nav_tmood">T-Mood</a></li>
+                <li><a href="" class="hover:text-[#587966] access-login transition-colors"
+                        data-translate="nav_mulai_belajar">Mulai-Belajar</a></li>
+                <li><a href="#" class="hover:text-[#587966] access-login transition-colors"
+                        data-translate="nav_suasana_tenang">Suasana-Tenang</a></li>
             </ul>
 
             <div class="relative flex gap-4 items-center">
                 <button id="language-btn"
-                    class="flex gap-1.5 items-center cursor-pointer hover:text-[#4E755F] transition-colors">
-                    <img src="/assets/images/landing/globe.png" alt="globe" class="h-7 w-7" />
-                    <h2 class="text-base font-semibold hidden sm:block">Bahasa</h2>
+                    class="flex gap-1 sm:gap-2 items-center cursor-pointer hover:text-[#587966] transition-colors focus:outline-none">
+                    <img src="../assets/images/globe.png" alt="globe" class="h-5 w-5 md:h-5 md:w-5" />
+                    <h2 class="text-xs md:text-sm font-semibold hidden sm:inline" data-translate="nav_bahasa">Bahasa
+                    </h2>
                 </button>
 
                 <div id="language-menu"
-                    class="hidden absolute right-15 top-10 md:right-10 md:top-10 w-40 bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
+                    class="hidden absolute right-0 top-full mt-2 w-40 bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden z-50">
 
                     <button class="w-full text-left px-4 py-3 hover:bg-[#F0EEE9] transition-colors">
                         🇮🇩 Indonesia
@@ -47,9 +55,8 @@
                         🇺🇸 English
                     </button>
 
-
                 </div>
-                <button id="menu-btn" class="md:hidden flex flex-col gap-1.5 p-1" aria-label="Toggle menu">
+                <button id="menu-btn" class="lg:hidden flex flex-col gap-1.5 p-1" aria-label="Toggle menu">
                     <span class="line block w-7 h-1 bg-[#414944] rounded"></span>
                     <span class="line block w-7 h-1 bg-[#414944] rounded"></span>
                     <span class="line block w-7 h-1 bg-[#414944] rounded"></span>
@@ -57,12 +64,21 @@
             </div>
         </div>
 
-        <div id="mobile-menu" class="md:hidden bg-[#F0EEE9] border-t border-[#d5d3ce]">
-            <ul class="flex flex-col text-[#414944] text-base font-semibold px-6 py-4 gap-4">
-                <li><a href="./index.html" class="access-login block hover:text-[#4E755F]">Beranda</a></li>
-                <li><a href="./t-mood.html" class="access-login block hover:text-[#4E755F]">T-Mood</a></li>
-                <li><a href="#" class="access-login block hover:text-[#4E755F]">Mulai-Belajar</a></li>
-                <li><a href="#" class="access-login block hover:text-[#4E755F]">Suasana-Tenang</a></li>
+        <div id="mobile-menu"
+            class="lg:hidden absolute top-14 md:top-16 left-0 w-full bg-[#F0EEE9] border-t border-[#E4E2DC] shadow-md transition-all duration-300">
+            <ul class="flex flex-col items-center text-[#414944] text-sm font-medium py-4 gap-2">
+                <li class="w-full text-center"><a href="../index.html"
+                        class="access-login block py-2 hover:bg-[#E4E2DC] transition-colors"
+                        data-translate="nav_beranda">Beranda</a></li>
+                <li class="w-full text-center"><a href="./t-mood.html"
+                        class="access-login block py-2 bg-[#E4E2DC]/50 text-[#587966] font-bold hover:bg-[#E4E2DC] transition-colors"
+                        data-translate="nav_tmood">T-Mood</a></li>
+                <li class="w-full text-center"><a href=""
+                        class="access-login block py-2 hover:bg-[#E4E2DC] transition-colors"
+                        data-translate="nav_mulai_belajar">Mulai-Belajar</a></li>
+                <li class="w-full text-center"><a href="#"
+                        class="access-login block py-2 hover:bg-[#E4E2DC] transition-colors"
+                        data-translate="nav_suasana_tenang">Suasana-Tenang</a></li>
             </ul>
         </div>
     </nav>
@@ -132,43 +148,49 @@
                 <div class="sm:px-6 md:px-10 space-y-5">
 
                     <div
-                        class="bg-[#345341] rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row items-center sm:items-start gap-5">
+                        class="bg-[#345341] rounded-3xl p-6 sm:p-8 flex flex-col-reverse md:flex-row items-center sm:items-start gap-5">
+                        <a href="t-mood.html" class="text-[#D9A15C] text-sm mt-3 md:hidden flex self-end">Buka
+                            Tracker Mood →</a>
                         <div class="w-20 h-20 sm:w-28 sm:h-28 shrink-0">
                             <img src="./assets/images/landing/tracker.png" alt="" class="w-full h-full object-contain">
                         </div>
                         <div class="text-center sm:text-left">
                             <h2 class="text-xl sm:text-2xl font-bold text-[#D9A15C] mb-2">1. Tracker Mood Harian</h2>
-                            <p class="font-semibold text-white text-sm leading-relaxed">
+                            <p class="font-semibold text-white text-sm leading-relaxed text-justify">
                                 Ekspresikan perasaanmu setiap pagi, siang, dan sore hari. Pilih ekspresi karakter maskot
                                 yang unik, tulis cerita harianmu dalam jurnal rahasia, dan terima saran aktivitas kustom
                                 pengembang emosimu secara instan.
                             </p>
-                            <a href="#" class="text-[#D9A15C] text-sm mt-3 md:inline-block flex justify-end">Buka
+                            <a href="t-mood.html"
+                                class="text-[#D9A15C] text-sm mt-3 md:inline-block hidden justify-end">Buka
                                 Tracker Mood →</a>
+
                         </div>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-5">
 
                         <div
-                            class="bg-[#517962] rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row items-center sm:items-start gap-5">
+                            class="bg-[#517962] rounded-3xl p-6 sm:p-8 flex flex-col-reverse md:flex-row items-center sm:items-start gap-5">
+                            <a href="#" class="text-[#D9A15C] text-sm mt-3 md:hidden flex self-end">Alur
+                                Waktu Belajar →</a>
                             <div class="w-20 h-20 sm:w-24 sm:h-24 shrink-0">
                                 <img src="./assets/images/landing/timer.png" alt=""
                                     class="w-full h-full object-contain">
                             </div>
                             <div class="text-center sm:text-left">
                                 <h2 class="text-xl sm:text-2xl font-bold text-[#D9A15C] mb-2">2. Pendamping Belajar</h2>
-                                <p class="font-semibold text-white text-sm leading-relaxed">
+                                <p class="font-semibold text-white text-sm leading-relaxed text-justify">
                                     Watcher otomatis yang melacak durasi belajar harian, sehatmu, memberi alarm jeda
                                     istirahat peregangan, serta menghitung risiko waktu tidur ideal agar tidak mengantuk
                                     di kelas esok pagi.
                                 </p>
-                                <a href="#" class="text-[#D9A15C] text-sm mt-3 md:inline-block flex justify-end">Alur
+                                <a href="#" class="text-[#D9A15C] text-sm mt-3 md:inline-block hidden justify-end">Alur
                                     Waktu Belajar →</a>
                             </div>
                         </div>
 
-                        <div class="bg-[#b4865b] rounded-3xl flex items-center justify-center p-8 min-h-[160px]">
+                        <div class="bg-[#b4865b] rounded-3xl flex items-center justify-center p-8 min-h-40">
                             <div class="text-center">
                                 <img src="./assets/images/landing/flower.png" alt="" class="w-20 mx-auto mb-3">
                                 <p class="text-xs font-bold text-[#31493c] tracking-widest">SENI MENEMUKAN KEDAMAIAN</p>
@@ -177,10 +199,10 @@
                     </div>
 
                     <div
-                        class="bg-gradient-to-r from-[#315543] to-[#0E2B1F] rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row items-center sm:items-start justify-between gap-6">
+                        class="bg-gradient-to-r from-[#315543] to-[#1b553d] rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row items-center sm:items-start justify-between gap-6">
                         <div class="max-w-xl text-center sm:text-left">
                             <h2 class="text-xl sm:text-2xl font-bold text-[#D9A15C] mb-2">3. Sudut Ambience Space</h2>
-                            <p class="font-semibold text-white text-sm leading-relaxed">
+                            <p class="font-semibold text-white text-sm leading-relaxed text-justify">
                                 Temukan ketenangan jiwa yang mendalam di sela padatnya jadwal pelajaran sekolah. Mainkan
                                 instrumen lo-fi akustik atau gemericik hujan harian, dan kendalikan kecemasanmu melalui
                                 panduan meditasi pernapasan kotak ("Box Breathing") teratur.
@@ -265,7 +287,7 @@
                     <p class="text-[#DCE4DE] text-sm mb-6 max-w-sm mx-auto md:mx-0">
                         Your-Friend siap menemani setiap langkahmu menuju keseimbangan, fokus, dan ketenangan.
                     </p>
-                    <a href="./beranda.html"
+                    <a href="./pages/login.html"
                         class="access-login inline-block bg-[#C49363] hover:bg-[#b88656] transition-colors px-10 sm:px-12 py-3 rounded-xl font-semibold text-white">
                         Mulai Sekarang
                     </a>
@@ -309,37 +331,7 @@
         </div>
     </footer>
 
-    <script>
-        const btn = document.getElementById('menu-btn');
-        const menu = document.getElementById('mobile-menu');
-        btn.addEventListener('click', () => {
-            btn.classList.toggle('active');
-            menu.classList.toggle('open');
-        });
-
-        // Akses login
-        const accessLoginElements = document.querySelectorAll('.access-login');
-        accessLoginElements.forEach(element => {
-            element.addEventListener('click', (e) => {
-                const token = localStorage.getItem('token');
-                if (token) return;
-                    e.preventDefault();
-                    window.location.href = './login.html';
-            });
-        });
-
-        const languageBtn = document.getElementById("language-btn");
-        const languageMenu = document.getElementById("language-menu");
-
-        languageBtn.addEventListener("click", (e) => {
-            e.stopPropagation();
-            languageMenu.classList.toggle("hidden");
-        });
-
-        document.addEventListener("click", () => {
-            languageMenu.classList.add("hidden");
-        });
-    </script>
+    <script src="./assets/JS/navbar.js"></script>
 </body>
 
 </html>
