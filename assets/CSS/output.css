@@ -323,11 +323,23 @@
   .right-6 {
     right: calc(var(--spacing) * 6);
   }
+  .-bottom-0 {
+    bottom: calc(var(--spacing) * -0);
+  }
+  .-bottom-5 {
+    bottom: calc(var(--spacing) * -5);
+  }
   .-bottom-7 {
     bottom: calc(var(--spacing) * -7);
   }
+  .-bottom-10 {
+    bottom: calc(var(--spacing) * -10);
+  }
   .-bottom-14 {
     bottom: calc(var(--spacing) * -14);
+  }
+  .-bottom-20 {
+    bottom: calc(var(--spacing) * -20);
   }
   .-bottom-30 {
     bottom: calc(var(--spacing) * -30);
@@ -377,6 +389,9 @@
   .z-0 {
     z-index: 0;
   }
+  .z-1 {
+    z-index: 1;
+  }
   .z-10 {
     z-index: 10;
   }
@@ -391,6 +406,9 @@
   }
   .z-50 {
     z-index: 50;
+  }
+  .z-100 {
+    z-index: 100;
   }
   .z-\[1000\] {
     z-index: 1000;
@@ -1311,10 +1329,6 @@
   }
   .from-\[\#F9F8F3\]\/50 {
     --tw-gradient-from: color-mix(in oklab, #F9F8F3 50%, transparent);
-    --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
-  }
-  .from-\[\#F9F8F3\]\/90 {
-    --tw-gradient-from: color-mix(in oklab, #F9F8F3 90%, transparent);
     --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
   }
   .from-\[\#FDF6EE\] {
@@ -2631,6 +2645,11 @@
   .md\:absolute {
     @media (width >= 48rem) {
       position: absolute;
+    }
+  }
+  .md\:relative {
+    @media (width >= 48rem) {
+      position: relative;
     }
   }
   .md\:top-4 {
