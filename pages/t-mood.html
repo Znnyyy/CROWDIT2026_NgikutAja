@@ -74,20 +74,20 @@
     </div>
   </nav>
 
-  <main class="grid grid-cols-1 md:grid-cols-3 pt-10 pb-5 mb-10 md:pb-2 px-4 md:px-15 overflow-x-hidden w-full">
+  <main class="grid grid-cols-1 lg:grid-cols-3 pt-10 pb-5 mb-10 lg:pb-2 px-4 lg:px-15 overflow-x-hidden w-full">
     <div
-      class="relative col-span-1 order-1 md:col-span-2 flex-1 flex flex-col items-center justify-start md:justify-center min-h-fit lg:min-h-0 px-4 md:px-6 py-4 gap-6 md:gap-0">
+      class="relative col-span-1 order-1 lg:col-span-2 flex-1 flex flex-col items-center justify-start lg:justify-center min-h-fit lg:min-h-0 px-4 lg:px-6 py-4 gap-6 lg:gap-0">
 
       <div
-        class="absolute md:top-3 top-2 md:left-23 left-5 bg-white rounded-2xl rounded-tl-none px-4 py-2.5 shadow-md text-sm font-semibold text-gray-700 z-10 order-1 md:order-0 animate-fade-in-down">
+        class="absolute lg:top-3 top-2 lg:left-23 left-5 bg-white rounded-2xl rounded-tl-none px-4 py-2.5 shadow-md text-sm font-semibold text-gray-700 z-10 order-1 lg:order-0 animate-fade-in-down">
         Yuk, Pahami Perasaanmu
       </div>
 
       <div id="card-history"
-        class="static md:absolute md:left-3 md:top-50 md:-translate-y-1/2 bg-white rounded-2xl md:rounded-tl-none px-4 py-3 shadow-md text-sm font-semibold text-gray-700 flex flex-col gap-3 w-full max-w-sm md:min-w-[180px] md:w-auto order-3 md:order-0 mt-2 md:mt-0 animate-fade-in-left delay-100">
+        class="static lg:absolute lg:left-3 lg:top-50 lg:-translate-y-1/2 bg-white rounded-2xl lg:rounded-tl-none px-4 py-3 shadow-md text-sm font-semibold text-gray-700 flex flex-col gap-3 w-full max-w-sm lg:min-w-[180px] lg:w-auto order-3 lg:order-0 mt-2 lg:mt-0 animate-fade-in-left delay-100">
         <p class="font-bold text-gray-800">Riwayat Mood Kamu</p>
         <hr class="border-gray-200">
-        <div id="history-list" class="flex flex-col gap-2.5">
+        <div id="history-list" class="flex flex-row lg:flex-col justify-around lg:justify-start gap-4 lg:gap-2.5">
           <!-- Item riwayat dimasukkan lewat JS -->
         </div>
         <button id="btn-go-result" class="w-full mt-1 bg-[#587966] hover:bg-[#4E755F] text-white text-xs font-bold py-2.5 px-3 rounded-xl shadow-sm transition-all duration-200 flex items-center justify-center gap-1.5 active:scale-95 cursor-pointer">
@@ -96,25 +96,25 @@
         </button>
       </div>
 
-      <div class="relative flex items-center justify-center w-64 h-64 md:w-80 md:h-80 order-2 md:order-0 animate-scale-in">
+      <div class="relative flex items-center justify-center w-64 h-64 lg:w-80 lg:h-80 order-2 lg:order-0 animate-scale-in">
         <div id="char-glow" class="absolute inset-0 rounded-full animate-glow-pulse"></div>
         <img src="" id="char-img" alt="Y-Friend Character"
           class="animate-float relative z-10 w-full h-full object-contain select-none drop-shadow-xl" />
 
         <button id="next-btn" title="next" type="button"
-          class="z-10 w-12 h-12 md:w-15 md:h-15 rounded-full border absolute -right-40 bottom-1/3 border-gray-200 md:flex hidden items-center justify-center text-gray-500 hover:bg-gray-100 transition-colors bg-white/80 backdrop-blur-sm shadow-sm">
-          <i data-lucide="chevron-right" class="w-6 h-6 md:w-8 md:h-8"></i>
+          class="z-10 w-12 h-12 lg:w-15 lg:h-15 rounded-full border absolute -right-40 bottom-1/3 border-gray-200 lg:flex hidden items-center justify-center text-gray-500 hover:bg-gray-100 transition-colors bg-white/80 backdrop-blur-sm shadow-sm">
+          <i data-lucide="chevron-right" class="w-6 h-6 lg:w-8 lg:h-8"></i>
         </button>
       </div>
     </div>
 
     <div
-      class="w-full order-3 md:order-2 bg-white rounded-t-3xl md:rounded-3xl flex flex-col justify-center px-6 md:px-10 py-8 gap-5 shadow-lg md:shadow-none animate-fade-in-right delay-200">
+      class="w-full order-3 lg:order-2 bg-white rounded-t-3xl lg:rounded-3xl flex flex-col justify-center px-6 lg:px-10 py-8 gap-5 shadow-lg lg:shadow-none animate-fade-in-right delay-200">
       <div>
         <p class="text-sm font-semibold text-gray-500" id="mood-title-label">
           Mood Kamu :
         </p>
-        <p id="mood-label" class="font-titan text-2xl md:text-4xl text-[#C9732A] mt-1">
+        <p id="mood-label" class="font-titan text-2xl lg:text-4xl text-[#C9732A] mt-1">
 
         </p>
       </div>
@@ -140,7 +140,7 @@
     </div>
 
     <div
-      class="bg-[#FDF6EE] w-full md:col-span-3 col-span-1 order-2 md:order-3 px-4 md:px-15 flex flex-col items-center py-4 md:py-5 animate-fade-in-up delay-300">
+      class="bg-[#FDF6EE] w-full lg:col-span-3 col-span-1 order-2 lg:order-3 px-4 lg:px-15 flex flex-col items-center py-4 lg:py-5 animate-fade-in-up delay-300">
 
       <div class="relative w-full max-w-5xl group">
         <!-- Left indicator (fade overlay & chevron) -->
@@ -153,7 +153,7 @@
         </div>
 
         <div id="mood-scroll-container"
-          class="flex items-center gap-4 md:gap-10 overflow-x-auto pb-2 w-full justify-start lg:justify-center select-none cursor-grab active:cursor-grabbing scrollbar-none">
+          class="flex items-center gap-4 lg:gap-10 overflow-x-auto pb-2 w-full justify-start lg:justify-center select-none cursor-grab active:cursor-grabbing scrollbar-none">
 
         </div>
 
@@ -169,7 +169,7 @@
 
       <!-- Scroll Progress Bar for mobile and tablet -->
       <div id="scroll-progress-wrapper"
-        class="w-32 h-1 bg-[#E4E2DC] rounded-full overflow-hidden mt-3 transition-opacity duration-300 opacity-0 md:hidden">
+        class="w-32 h-1 bg-[#E4E2DC] rounded-full overflow-hidden mt-3 transition-opacity duration-300 opacity-0 lg:hidden">
         <div id="scroll-progress-bar" class="h-full bg-[#587966] w-0 rounded-full transition-all duration-100"></div>
       </div>
 
