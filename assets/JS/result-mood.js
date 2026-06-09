@@ -148,9 +148,9 @@ function renderResultPage() {
     } else {
       card.classList.add("opacity-60", "border-dashed");
       card.innerHTML = `
-        <a href="../../pages/login.html" class="w-12 h-12 rounded-xl bg-gray-100 flex items-center justify-center shrink-0">
+        <a href="../../pages/t-mood.html" class="w-12 h-12 rounded-xl bg-gray-100 flex items-center justify-center shrink-0">
           <i data-lucide="plus" class="w-5 h-5 text-gray-400"></i>
-        </a>
+        </a>=
         <div class="flex-1">
           <div class="flex justify-between items-baseline">
             <span class="text-sm font-medium text-gray-400">Belum Diisi</span>
