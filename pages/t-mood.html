@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Y-Friend — Mood</title>
+  <link rel="stylesheet" href="../assets/CSS/output.css" />
+  <link rel="stylesheet" href="../assets/CSS/global.css" />
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+</head>
+
+<body class="min-h-screen bg-[#FDF6EE] flex flex-col">
+  <!-- Navbar -->
+  <nav class="bg-[#F0EEE9] px-4 sm:px-8 md:px-12 h-14 md:h-16 text-[#414944] sticky top-0 z-50 shadow-sm">
+
+    <div class="flex justify-between items-center h-full text-[#414944]">
+
+      <div class="flex items-center gap-1 sm:gap-2">
+        <a href="../index.html">
+          <img src="../assets/images/landing/logo.png" alt="Your-Friend" class="h-8 w-8 md:h-10 md:w-10" />
+        </a>
+        <a href="../index.html">
+          <h1 class="text-lg sm:text-xl md:text-xl font-titan ">Y-Friend</h1>
+        </a>
+      </div>
+
+      <ul class="hidden lg:flex gap-6 lg:gap-10 text-sm lg:text-sm font-medium">
+        <li><a href="../index.html" class="hover:text-[#587966] access-login transition-colors"
+            data-translate="nav_beranda">Beranda</a></li>
+        <li><a href="./t-mood.html"
+            class="hover:text-[#587966] access-login transition-colors text-[#587966] font-bold border-b-2 border-[#587966] pb-1"
+            data-translate="nav_tmood">T-Mood</a></li>
+        <li><a href="" class="hover:text-[#587966] access-login transition-colors"
+            data-translate="nav_mulai_belajar">Mulai-Belajar</a></li>
+        <li><a href="#" class="hover:text-[#587966] access-login transition-colors"
+            data-translate="nav_suasana_tenang">Suasana-Tenang</a></li>
+      </ul>
+
+      <div class="relative flex gap-4 items-center">
+        <button id="language-btn"
+          class="flex gap-1 sm:gap-2 items-center cursor-pointer hover:text-[#587966] transition-colors focus:outline-none">
+          <img src="../assets/images/globe.png" alt="globe" class="h-5 w-5 md:h-5 md:w-5" />
+          <h2 class="text-xs md:text-sm font-semibold hidden sm:inline" data-translate="nav_bahasa">Bahasa</h2>
+        </button>
+
+        <div id="language-menu"
+          class="hidden absolute right-0 top-full mt-2 w-40 bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden z-50">
+
+          <button class="w-full text-left px-4 py-3 hover:bg-[#F0EEE9] transition-colors">
+            🇮🇩 Indonesia
+          </button>
+
+          <button class="w-full text-left px-4 py-3 hover:bg-[#F0EEE9] transition-colors">
+            🇺🇸 English
+          </button>
+
+        </div>
+        <button id="menu-btn" class="lg:hidden flex flex-col gap-1.5 p-1" aria-label="Toggle menu">
+          <span class="line block w-7 h-1 bg-[#414944] rounded"></span>
+          <span class="line block w-7 h-1 bg-[#414944] rounded"></span>
+          <span class="line block w-7 h-1 bg-[#414944] rounded"></span>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobile-menu"
+      class="lg:hidden absolute top-14 md:top-16 left-0 w-full bg-[#F0EEE9] border-t border-[#E4E2DC] shadow-md transition-all duration-300">
+      <ul class="flex flex-col items-center text-[#414944] text-sm font-medium py-4 gap-2">
+        <li class="w-full text-center"><a href="../index.html"
+            class="access-login block py-2 hover:bg-[#E4E2DC] transition-colors"
+            data-translate="nav_beranda">Beranda</a></li>
+        <li class="w-full text-center"><a href="./t-mood.html"
+            class="access-login block py-2 bg-[#E4E2DC]/50 text-[#587966] font-bold hover:bg-[#E4E2DC] transition-colors"
+            data-translate="nav_tmood">T-Mood</a></li>
+        <li class="w-full text-center"><a href="" class="access-login block py-2 hover:bg-[#E4E2DC] transition-colors"
+            data-translate="nav_mulai_belajar">Mulai-Belajar</a></li>
+        <li class="w-full text-center"><a href="#" class="access-login block py-2 hover:bg-[#E4E2DC] transition-colors"
+            data-translate="nav_suasana_tenang">Suasana-Tenang</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="grid grid-cols-1 md:grid-cols-3 pt-5 pb-5 mb-10 md:pb-2 px-4 md:px-15 overflow-x-hidden w-full">
+    <div
+      class="relative col-span-1 order-1 md:col-span-2 flex-1 flex flex-col items-center justify-start md:justify-center min-h-fit lg:min-h-0 px-4 md:px-6 py-4 gap-6 md:gap-0">
+
+      <div
+        class="absolute md:top-4 top-2 md:left-23 left-5 bg-white rounded-2xl rounded-tl-none px-4 py-2.5 shadow-md text-sm font-semibold text-gray-700 z-10 order-1 md:order-0 animate-fade-in-down">
+        Yuk, Pahami Perasaanmu
+      </div>
+
+      <div id="card-history"
+        class="static md:absolute md:left-3 md:top-45 md:-translate-y-1/2 bg-white rounded-2xl md:rounded-tl-none px-4 py-3 shadow-md text-sm font-semibold text-gray-700 flex flex-col gap-3 w-full max-w-sm md:min-w-[180px] md:w-auto order-3 md:order-0 mt-2 md:mt-0 animate-fade-in-left delay-100">
+        <p class="font-bold text-gray-800">Riwayat Mood Kamu</p>
+        <hr class="border-gray-200">
+        <div id="history-list" class="flex flex-col gap-2.5">
+          <!-- Item riwayat dimasukkan lewat JS -->
+        </div>
+        <button id="btn-go-result" class="w-full mt-1 bg-[#587966] hover:bg-[#4E755F] text-white text-xs font-bold py-2.5 px-3 rounded-xl shadow-sm transition-all duration-200 flex items-center justify-center gap-1.5 active:scale-95 cursor-pointer">
+          <span>Lihat Hasil</span>
+          <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+        </button>
+      </div>
+
+      <div class="relative flex items-center justify-center w-64 h-64 md:w-80 md:h-80 order-2 md:order-0 animate-scale-in">
+        <div id="char-glow" class="absolute inset-0 rounded-full animate-glow-pulse"></div>
+        <img src="" id="char-img" alt="Y-Friend Character"
+          class="animate-float relative z-10 w-full h-full object-contain select-none drop-shadow-xl" />
+
+        <button id="next-btn" title="next" type="button"
+          class="z-10 w-12 h-12 md:w-15 md:h-15 rounded-full border absolute -right-40 bottom-1/3 border-gray-200 md:flex hidden items-center justify-center text-gray-500 hover:bg-gray-100 transition-colors bg-white/80 backdrop-blur-sm shadow-sm">
+          <i data-lucide="chevron-right" class="w-6 h-6 md:w-8 md:h-8"></i>
+        </button>
+      </div>
+    </div>
+
+    <div
+      class="w-full order-3 md:order-2 bg-white rounded-t-3xl md:rounded-3xl flex flex-col justify-center px-6 md:px-10 py-8 gap-5 shadow-lg md:shadow-none animate-fade-in-right delay-200">
+      <div>
+        <p class="text-sm font-semibold text-gray-500" id="mood-title-label">
+          Mood Kamu :
+        </p>
+        <p id="mood-label" class="font-titan text-2xl md:text-4xl text-[#C9732A] mt-1">
+
+        </p>
+      </div>
+
+      <div>
+        <p class="text-sm font-semibold text-gray-700">
+          Kenapa Kamu Merasa
+          <span id="mood-inline" class="text-[#C9732A]"> </span> <span id="mood-label-time"> </span> ?
+        </p>
+        <textarea id="mood-textarea"
+          class="mt-2 w-full h-32 border border-gray-200 rounded-xl bg-gray-50 text-sm text-gray-700 placeholder-gray-400 p-3 resize-none transition-all duration-200 focus:outline-none focus:ring-3 focus:ring-(--mood-color)/15"
+          placeholder="Tulis disini..."></textarea>
+      </div>
+
+      <div class="flex items-center justify-end">
+        <button
+          class="font-titan bg-[#F5C842] hover:bg-[#e6b830] active:scale-[.98] text-white px-8 py-3 rounded-2xl text-base tracking-wide shadow-md shadow-yellow-300/40 transition-all duration-200"
+          id="send-mood-btn">
+          Kirim
+        </button>
+      </div>
+
+    </div>
+
+    <div
+      class="bg-[#FDF6EE] w-full md:col-span-3 col-span-1 order-2 md:order-3 px-4 md:px-15 flex flex-col items-center py-4 md:py-5 animate-fade-in-up delay-300">
+
+      <div class="relative w-full max-w-5xl group">
+        <!-- Left indicator (fade overlay & chevron) -->
+        <div id="scroll-indicator-left"
+          class="absolute left-0 top-0 bottom-2 w-16 bg-gradient-to-r from-[#FDF6EE] to-transparent pointer-events-none z-20 opacity-0 transition-opacity duration-300 flex items-center justify-start pl-1">
+          <button type="button" id="btn-scroll-left"
+            class="pointer-events-auto w-8 h-8 rounded-full bg-white/95 border border-gray-100 shadow-md flex items-center justify-center text-[#587966] cursor-pointer hover:bg-white active:scale-95 transition-all">
+            <i data-lucide="chevron-left" class="w-4 h-4"></i>
+          </button>
+        </div>
+
+        <div id="mood-scroll-container"
+          class="flex items-center gap-4 md:gap-10 overflow-x-auto pb-2 w-full justify-start lg:justify-center select-none cursor-grab active:cursor-grabbing scrollbar-none">
+
+        </div>
+
+        <!-- Right indicator (fade overlay & chevron) -->
+        <div id="scroll-indicator-right"
+          class="absolute right-0 top-0 bottom-2 w-16 bg-gradient-to-l from-[#FDF6EE] to-transparent pointer-events-none z-20 opacity-0 transition-opacity duration-300 flex items-center justify-end pr-1">
+          <button type="button" id="btn-scroll-right"
+            class="pointer-events-auto w-8 h-8 rounded-full bg-white/95 border border-gray-100 shadow-md flex items-center justify-center text-[#587966] cursor-pointer hover:bg-white active:scale-95 transition-all">
+            <i data-lucide="chevron-right" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Scroll Progress Bar for mobile and tablet -->
+      <div id="scroll-progress-wrapper"
+        class="w-32 h-1 bg-[#E4E2DC] rounded-full overflow-hidden mt-3 transition-opacity duration-300 opacity-0 md:hidden">
+        <div id="scroll-progress-bar" class="h-full bg-[#587966] w-0 rounded-full transition-all duration-100"></div>
+      </div>
+
+    </div>
+
+    </div>
+
+  </main>
+
+
+  <footer class="bg-[#ECEAE4] py-10 px-5 sm:px-10 md:px-20">
+    <hr class="border-[#829186] border-t-2 mb-10">
+    <div class="flex flex-col sm:flex-row justify-between gap-8">
+
+      <div class="max-w-sm">
+        <div class="flex items-center gap-2 mb-4">
+          <img src="../assets/images/landing/logo.png" alt="Y-Friend" class="w-9 h-9 sm:w-10 sm:h-10">
+          <p class="text-2xl sm:text-3xl text-[#414944] font-semibold font-poppins">Y-Friend</p>
+        </div>
+        <p class="text-sm text-[#5F655F] leading-relaxed">
+          Your-Friend adalah ruang aman untuk menemani pelajar mengelola emosi, mengatur waktu, dan menemukan
+          ketenangan dalam setiap hari.
+        </p>
+      </div>
+
+      <div class="sm:text-right">
+        <h3 class="font-bold text-[#414944] mb-3">Kontak</h3>
+        <div class="space-y-1 text-sm text-[#5F655F]">
+          <p>contoh@yfriend.id</p>
+          <p>+62 812-3456-7890</p>
+        </div>
+        <div class="flex sm:justify-end gap-3 mt-5">
+          <a href="#"><img src="../assets/images/landing/instagram.png" alt="Instagram" class="w-6 h-6"></a>
+          <a href="#"><img src="../assets/images/landing/facebook.png" alt="Facebook" class="w-6 h-6"></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <script src="../assets/JS/navbar.js"></script>
+  <script src="../assets/JS/t-mood.js"></script>
+</body>
+
+</html>
