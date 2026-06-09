@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (token) return;
             e.preventDefault();
             const isInPages = window.location.pathname.includes("/pages/");
-            window.location.href = isInPages ? "../login.html" : "./login.html";
+            window.location.href = isInPages ? "../login.html" : "./pages/login.html";
         });
     });
 });

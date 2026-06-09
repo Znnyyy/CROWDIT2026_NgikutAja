@@ -1,0 +1,67 @@
+/* Font styles */
+.font-titan {
+  font-family: "Titan One", cursive;
+}
+
+/* Custom styles for Suasana Tenang page */
+
+/* Hero Banner Gradient Placeholder */
+.hero-bg-gradient {
+  background: linear-gradient(135deg, #E8EBE4 0%, #D1D8CC 50%, #BCC6B5 100%);
+}
+
+/* Custom Range Slider for Audio Player */
+.custom-slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 4px;
+  background: #526A5C;
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+}
+
+.custom-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #D4A373;
+  cursor: pointer;
+  transition: transform 0.2s;
+  box-shadow: 0 0 5px rgba(0,0,0,0.3);
+}
+
+.custom-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+.custom-slider::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border: none;
+  border-radius: 50%;
+  background: #D4A373;
+  cursor: pointer;
+  transition: transform 0.2s;
+  box-shadow: 0 0 5px rgba(0,0,0,0.3);
+}
+
+.custom-slider::-moz-range-thumb:hover {
+  transform: scale(1.2);
+}
+
+.custom-slider::-moz-range-track {
+  background: #526A5C;
+  height: 4px;
+  border-radius: 2px;
+}
+
+/* Line clamp for description texts */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
